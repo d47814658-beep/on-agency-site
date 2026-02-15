@@ -51,6 +51,7 @@ const SocialButton = ({ href, label, children }: { href: string, label: string, 
 
 const Footer: React.FC = () => {
   const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-white border-t border-gray-100 pt-20 pb-10 px-6 md:px-12 lg:px-24 overflow-hidden">
@@ -104,7 +105,7 @@ const Footer: React.FC = () => {
             ON AGENCY
          </MotionDiv>
          <div className="mt-8 text-center text-xs text-gray-400">
-            © {new Date().getFullYear()} ON AGENCY. {t.footer.rights}
+            © {currentYear} ON AGENCY. {t.footer.rights}
          </div>
       </div>
     </footer>
