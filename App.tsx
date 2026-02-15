@@ -73,6 +73,37 @@ const AppContent: React.FC = () => {
 
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      y: -20,
+      scale: 0.95,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      }
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        duration: 0.4,
+        bounce: 0,
+        staggerChildren: 0.07,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, x: -15 },
+    open: { opacity: 1, x: 0 }
+  };
+
   return (
     <div className="min-h-screen font-sans bg-[#F5F5F7] selection:bg-gray-200 selection:text-black overflow-x-hidden">
       <ScrollProgress />
@@ -124,8 +155,32 @@ const AppContent: React.FC = () => {
                 <span className="text-gray-300">/</span>
                 <span className={language === 'en' ? "text-black" : "text-gray-400"}>EN</span>
               </button>
-             <button onClick={toggleMenu} className="p-2 text-gray-800 active:scale-90 transition-transform">
-               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+             <button onClick={toggleMenu} className="p-2 text-gray-800 focus:outline-none relative w-10 h-10 flex items-center justify-center">
+               <AnimatePresence mode="wait" initial={false}>
+                 {isMobileMenuOpen ? (
+                   <motion.div
+                     key="close"
+                     initial={{ rotate: -90, opacity: 0 }}
+                     animate={{ rotate: 0, opacity: 1 }}
+                     exit={{ rotate: 90, opacity: 0 }}
+                     transition={{ duration: 0.2 }}
+                     className="absolute"
+                   >
+                     <X size={24} />
+                   </motion.div>
+                 ) : (
+                   <motion.div
+                     key="open"
+                     initial={{ rotate: 90, opacity: 0 }}
+                     animate={{ rotate: 0, opacity: 1 }}
+                     exit={{ rotate: -90, opacity: 0 }}
+                     transition={{ duration: 0.2 }}
+                     className="absolute"
+                   >
+                     <Menu size={24} />
+                   </motion.div>
+                 )}
+               </AnimatePresence>
              </button>
           </div>
         </div>
@@ -134,20 +189,20 @@ const AppContent: React.FC = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
               className="absolute top-full left-0 right-0 mt-2 px-4 md:hidden"
             >
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col gap-2">
-                <a href="#benefits" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.features}</a>
-                <a href="#pricing" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.pricing}</a>
-                <a href="#services" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.services}</a>
-                <div className="h-px bg-gray-100 my-1"></div>
-                <a href="#contact" className="text-center p-3 bg-black text-white rounded-xl font-semibold shadow-md active:scale-[0.98] transition-transform">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col gap-2 overflow-hidden">
+                <motion.a variants={itemVariants} href="#benefits" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.features}</motion.a>
+                <motion.a variants={itemVariants} href="#pricing" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.pricing}</motion.a>
+                <motion.a variants={itemVariants} href="#services" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.services}</motion.a>
+                <motion.div variants={itemVariants} className="h-px bg-gray-100 my-1"></motion.div>
+                <motion.a variants={itemVariants} href="#contact" className="text-center p-3 bg-black text-white rounded-xl font-semibold shadow-md active:scale-[0.98] transition-transform">
                   {t.nav.contact}
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           )}
