@@ -31,13 +31,15 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({ children, classN
     y.set(0);
   };
 
-  const Component = href ? motion.a : motion.button;
+  // Fix: Cast motion components to any
+  const Component = href ? (motion.a as any) : (motion.button as any);
   const props = href ? { href } : { onClick };
 
   return (
     <Component
       ref={ref as any}
-      style={{ x: xSpring, y: ySpring }}
+      // Fix: Cast style to any to allow motion values x/y
+      style={{ x: xSpring, y: ySpring } as any}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       whileHover={{ scale: 1.05 }}

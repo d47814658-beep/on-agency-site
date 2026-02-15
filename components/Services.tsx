@@ -7,6 +7,9 @@ import { Section } from './ui/Section';
 import { motion } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
 
+// Fix: Cast motion.div to any
+const MotionDiv = motion.div as any;
+
 // --- Visual Components ---
 
 const StrategyVisual = () => {
@@ -14,18 +17,18 @@ const StrategyVisual = () => {
     <div className="relative w-full h-full flex items-center justify-center p-6">
       <div className="relative flex items-center gap-8 md:gap-12">
         {/* Left Node */}
-        <motion.div 
+        <MotionDiv 
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
           className="relative z-10 w-16 h-16 bg-white rounded-2xl shadow-xl border border-gray-100 flex items-center justify-center"
         >
           <Layers className="w-8 h-8 text-black" />
-        </motion.div>
+        </MotionDiv>
 
         {/* Connecting Line */}
         <div className="absolute top-1/2 left-0 w-full h-px bg-gray-200 -z-0">
-           <motion.div 
+           <MotionDiv 
               animate={{ x: [-20, 100], opacity: [0, 1, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
               className="w-20 h-full bg-gradient-to-r from-transparent via-black to-transparent"
@@ -33,14 +36,14 @@ const StrategyVisual = () => {
         </div>
 
         {/* Right Node */}
-        <motion.div 
+        <MotionDiv 
           initial={{ scale: 1 }}
           animate={{ scale: 0.9 }}
           transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", delay: 1 }}
           className="relative z-10 w-20 h-20 bg-black rounded-2xl shadow-xl flex items-center justify-center"
         >
           <Command className="w-10 h-10 text-white" />
-        </motion.div>
+        </MotionDiv>
         
         {/* Orbiting particles */}
         <div className="absolute inset-0 animate-[spin_10s_linear_infinite]">
@@ -69,7 +72,7 @@ const ContentGenVisual = () => {
 
         {/* Fake Dropdown Menu */}
         <div className="flex flex-col gap-1 p-1">
-           <motion.div 
+           <MotionDiv 
              initial={{ opacity: 0, x: -10 }}
              whileInView={{ opacity: 1, x: 0 }}
              transition={{ delay: 0.5 }}
@@ -77,8 +80,8 @@ const ContentGenVisual = () => {
            >
               <span className="w-1.5 h-1.5 rounded-full bg-black" />
               {t.services.cards.content.uiSeo}
-           </motion.div>
-           <motion.div 
+           </MotionDiv>
+           <MotionDiv 
              initial={{ opacity: 0, x: -10 }}
              whileInView={{ opacity: 1, x: 0 }}
              transition={{ delay: 0.7 }}
@@ -86,7 +89,7 @@ const ContentGenVisual = () => {
            >
               <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
               {t.services.cards.content.uiFix}
-           </motion.div>
+           </MotionDiv>
         </div>
       </div>
     </div>
@@ -120,7 +123,7 @@ const Services: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           
           {/* Card 1: Strategy (Large Left) */}
-          <motion.div 
+          <MotionDiv 
             whileHover={{ y: -5 }}
             className="md:col-span-5 bg-white rounded-[2rem] p-8 md:p-10 shadow-sm border border-gray-100 flex flex-col justify-between overflow-hidden min-h-[400px]"
           >
@@ -136,10 +139,10 @@ const Services: React.FC = () => {
                    {t.services.cards.strategy.desc}
                 </p>
              </div>
-          </motion.div>
+          </MotionDiv>
 
           {/* Card 2: Content/AI (Large Right) */}
-          <motion.div 
+          <MotionDiv 
             whileHover={{ y: -5 }}
             className="md:col-span-7 bg-white rounded-[2rem] p-8 md:p-10 shadow-sm border border-gray-100 flex flex-col justify-between overflow-hidden min-h-[400px]"
           >
@@ -155,10 +158,10 @@ const Services: React.FC = () => {
                    {t.services.cards.content.desc}
                 </p>
              </div>
-          </motion.div>
+          </MotionDiv>
 
           {/* Card 3: Performance */}
-          <motion.div 
+          <MotionDiv 
              whileHover={{ y: -5 }}
              className="md:col-span-4 bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 flex flex-col min-h-[280px]"
           >
@@ -173,10 +176,10 @@ const Services: React.FC = () => {
                 <span className="text-sm font-semibold text-gray-900">{t.services.cards.performance.cta}</span>
                 <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
              </a>
-          </motion.div>
+          </MotionDiv>
 
           {/* Card 4: Analytics */}
-          <motion.div 
+          <MotionDiv 
              whileHover={{ y: -5 }}
              className="md:col-span-4 bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 flex flex-col min-h-[280px]"
           >
@@ -191,10 +194,10 @@ const Services: React.FC = () => {
                 <span className="text-sm font-semibold text-gray-900">{t.services.cards.analytics.cta}</span>
                 <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
              </a>
-          </motion.div>
+          </MotionDiv>
 
           {/* Card 5: Support */}
-          <motion.div 
+          <MotionDiv 
              whileHover={{ y: -5 }}
              className="md:col-span-4 bg-black rounded-[2rem] p-8 shadow-xl flex flex-col min-h-[280px] relative overflow-hidden"
           >
@@ -211,7 +214,7 @@ const Services: React.FC = () => {
                 <span className="text-sm font-semibold text-white">{t.services.cards.support.cta}</span>
                 <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
              </a>
-          </motion.div>
+          </MotionDiv>
 
         </div>
       </div>

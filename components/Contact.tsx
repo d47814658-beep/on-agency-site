@@ -4,6 +4,12 @@ import { Mail, Phone, Send } from 'lucide-react';
 import { Section } from './ui/Section';
 import { useLanguage } from './LanguageContext';
 
+// Fix: Cast motion components to any
+const MotionDiv = motion.div as any;
+const MotionH2 = motion.h2 as any;
+const MotionP = motion.p as any;
+const MotionButton = motion.button as any;
+
 const Contact: React.FC = () => {
   const { t } = useLanguage();
 
@@ -13,7 +19,7 @@ const Contact: React.FC = () => {
         
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
-          <motion.div 
+          <MotionDiv 
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
@@ -21,8 +27,8 @@ const Contact: React.FC = () => {
           >
              <div className="w-2 h-2 rounded-full bg-black animate-pulse" />
              <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600">{t.contact.badge}</span>
-          </motion.div>
-          <motion.h2 
+          </MotionDiv>
+          <MotionH2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -30,8 +36,8 @@ const Contact: React.FC = () => {
             className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6"
           >
             {t.contact.title} <span className="text-gray-400">{t.contact.subtitle}</span>
-          </motion.h2>
-          <motion.p 
+          </MotionH2>
+          <MotionP 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -39,7 +45,7 @@ const Contact: React.FC = () => {
             className="text-xl text-gray-500 max-w-2xl mx-auto"
           >
             {t.contact.desc}
-          </motion.p>
+          </MotionP>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 md:gap-12">
@@ -48,7 +54,7 @@ const Contact: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col gap-6">
             
             {/* Email Card */}
-            <motion.div 
+            <MotionDiv 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -66,10 +72,10 @@ const Contact: React.FC = () => {
               <a href="mailto:hello@on-agency.site" className="group inline-flex items-center text-sm font-semibold text-black transition-opacity">
                 <span className="border-b border-black group-hover:border-transparent transition-colors duration-300">{t.contact.emailCard.cta}</span>
               </a>
-            </motion.div>
+            </MotionDiv>
 
             {/* Call Card */}
-            <motion.div 
+            <MotionDiv 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -87,12 +93,12 @@ const Contact: React.FC = () => {
               <a href="#" className="group inline-flex items-center text-sm font-semibold text-black transition-opacity">
                  <span className="border-b border-black group-hover:border-transparent transition-colors duration-300">{t.contact.callCard.cta}</span>
               </a>
-            </motion.div>
+            </MotionDiv>
 
           </div>
 
           {/* Right Column - Form */}
-          <motion.div 
+          <MotionDiv 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -136,7 +142,7 @@ const Contact: React.FC = () => {
                 />
               </div>
 
-              <motion.button
+              <MotionButton
                 whileHover="hover"
                 initial="initial"
                 whileTap="tap"
@@ -148,7 +154,7 @@ const Contact: React.FC = () => {
                 className="w-full py-4 bg-black text-white font-bold rounded-xl shadow-lg shadow-black/20 hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 mt-4 cursor-pointer"
               >
                 <span>{t.contact.form.cta}</span>
-                <motion.div
+                <MotionDiv
                   variants={{
                     initial: { x: 0, y: 0 },
                     hover: { x: 3, y: -3 },
@@ -157,10 +163,10 @@ const Contact: React.FC = () => {
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <Send className="w-4 h-4" />
-                </motion.div>
-              </motion.button>
+                </MotionDiv>
+              </MotionButton>
             </form>
-          </motion.div>
+          </MotionDiv>
 
         </div>
       </div>

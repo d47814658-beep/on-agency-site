@@ -4,6 +4,11 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 import { Section } from './ui/Section';
 import { useLanguage } from './LanguageContext';
 
+// Fix: Cast motion components to any
+const MotionDiv = motion.div as any;
+const MotionH2 = motion.h2 as any;
+const MotionP = motion.p as any;
+
 interface Question {
   q: string;
   a: string;
@@ -82,7 +87,7 @@ const FAQ: React.FC = () => {
         
         {/* Header */}
         <div className="text-center mb-12">
-          <motion.div 
+          <MotionDiv 
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
@@ -90,8 +95,8 @@ const FAQ: React.FC = () => {
           >
              <HelpCircle className="w-3.5 h-3.5 text-black" />
              <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600">{t.faq.header.badge}</span>
-          </motion.div>
-          <motion.h2 
+          </MotionDiv>
+          <MotionH2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -99,8 +104,8 @@ const FAQ: React.FC = () => {
             className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4"
           >
             {t.faq.header.title} <span className="text-gray-400">{t.faq.header.subtitle}</span>
-          </motion.h2>
-          <motion.p 
+          </MotionH2>
+          <MotionP 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -108,7 +113,7 @@ const FAQ: React.FC = () => {
             className="text-lg text-gray-500"
           >
             {t.faq.header.desc}
-          </motion.p>
+          </MotionP>
         </div>
 
         {/* Tabs */}
@@ -131,7 +136,7 @@ const FAQ: React.FC = () => {
         {/* Accordion List */}
         <div className="space-y-4">
           <AnimatePresence mode="wait">
-            <motion.div
+            <MotionDiv
               key={activeTab}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -148,7 +153,7 @@ const FAQ: React.FC = () => {
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 />
               ))}
-            </motion.div>
+            </MotionDiv>
           </AnimatePresence>
         </div>
 
@@ -186,7 +191,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
         </button>
         <AnimatePresence>
             {isOpen && (
-                <motion.div
+                <MotionDiv
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -196,7 +201,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
                     <div className="px-6 pb-6 pt-2 text-gray-600 leading-relaxed bg-white mx-1 rounded-b-2xl border-x border-b border-gray-100">
                         {answer}
                     </div>
-                </motion.div>
+                </MotionDiv>
             )}
         </AnimatePresence>
     </div>

@@ -2,19 +2,6 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'fr' | 'en';
 
-interface ProjectStat {
-  value: string;
-  label: string;
-}
-
-interface ProjectItem {
-  title: string;
-  category: string;
-  desc: string;
-  stats: ProjectStat[];
-  image?: string;
-}
-
 interface LanguageContextType {
   language: Language;
   toggleLanguage: () => void;
@@ -24,7 +11,7 @@ interface LanguageContextType {
 const translations = {
   fr: {
     nav: {
-      features: "Caractéristiques",
+      features: "Réalisations",
       pricing: "Tarification",
       services: "Services",
       contact: "Contact",
@@ -80,22 +67,20 @@ const translations = {
       seo: "Optimisation SEO Technique"
     },
     features: {
-      bigCard: {
-        badge: "Modèle Révolutionnaire",
-        title: "Fini les devis à 5000€.",
-        desc: "Avec ON AGENCY, vous payez 97$/mois pour un service tout compris : création, hébergement, maintenance et sécurité. Gardez votre trésorerie pour votre croissance.",
-        chartAgency: "Agence",
-        chartOn: "ON",
-        labelEco: "Économie Initiale"
+      badge: "RÉALISATIONS",
+      title: "Nos Projets Récents",
+      subtitle: "Découvrez comment nous transformons les idées en expériences digitales.",
+      headline: {
+        main: "Des sites web d'exception qui racontent",
+        italic: "votre",
+        end: "histoire."
       },
-      codeCard: {
-        title: "Code Pur & Performance",
-        desc: "Nous ne sommes pas une agence WordPress. Nous développons en code pur (React, TypeScript) pour des performances inégalées, une sécurité maximale et un SEO natif."
-      },
-      ownerCard: {
-        title: "Propriété Transférée",
-        desc: "Vous n'êtes pas locataire à vie. Après 12 à 16 mois d'engagement, le code source du site vous appartient totalement. Une transparence totale.",
-        progression: "Progression acquisition"
+      items: {
+        item1: { title: "Nexus Tech", category: "SaaS", desc: "Plateforme de gestion cloud avec dashboard temps réel." },
+        item2: { title: "Lumina Art", category: "E-commerce", desc: "Galerie d'art numérique avec expérience immersive." },
+        item3: { title: "Elevate Finance", category: "Fintech", desc: "Application bancaire nouvelle génération sécurisée." },
+        item4: { title: "Pulse Energy", category: "Corporate", desc: "Site vitrine pour un leader de l'énergie verte." },
+        item5: { title: "PropVision", category: "Real Estate", desc: "Visualisation immobilière 3D interactive." }
       }
     },
     services: {
@@ -134,64 +119,6 @@ const translations = {
           cta: "Contacter"
         }
       }
-    },
-    projects: {
-      badge: "PROJETS",
-      headline: "Votre présence en ligne,",
-      headlineItalic: "enfin sur ON.",
-      cta: "Voir tous les projets",
-      items: [
-        {
-          title: "Luxe & Co",
-          category: "E-commerce",
-          desc: "Refonte complète de l'expérience d'achat pour une marque de maroquinerie de luxe.",
-          image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "+40%", label: "Conversion Rate" },
-            { value: "0.8s", label: "Load Time" }
-          ]
-        },
-        {
-          title: "TechFlow",
-          category: "SaaS B2B",
-          desc: "Landing page haute conversion et dashboard pour une startup fintech.",
-          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "3x", label: "More Qualified Leads" },
-            { value: "100", label: "Performance Score" }
-          ]
-        },
-        {
-          title: "Estate Privé",
-          category: "Immobilier",
-          desc: "Site vitrine immersif pour une agence immobilière de prestige.",
-          image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "+65%", label: "Time on Site" },
-            { value: "-50%", label: "Bounce Rate" }
-          ]
-        },
-        {
-          title: "Neon Food",
-          category: "Restauration",
-          desc: "Site expérientiel pour une chaîne de restaurants modernes.",
-          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "+20%", label: "Commandes" },
-            { value: "4.9", label: "Avis Moyen" }
-          ]
-        },
-        {
-          title: "AndyLo Portoflio",
-          category: "Personnel",
-          desc: "Portfolio interactif pour un directeur artistique.",
-          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "Awwwards", label: "Site of the Day" },
-            { value: "10k", label: "Visits/mois" }
-          ]
-        }
-      ]
     },
     pricing: {
       monthly: "Mensuel",
@@ -291,30 +218,30 @@ const translations = {
         a11: "Vous possédez vos contenus et votre marque (textes fournis, logos, médias, données). Pour la partie technique et l’architecture opérée en abonnement, tout est clarifié au contrat : l’objectif est que vous soyez protégé et que l’exploitation reste stable.",
         q12: "Où est hébergé le site ?",
         a12: "Sur une infrastructure fiable et adaptée à votre besoin (performance, disponibilité, sécurité). Le choix est fait pour la stabilité, pas pour “gratter” 3€ par mois.",
-        q13: "Is the site secure?",
-        a13: "Yes, security is part of the model: updates, monitoring, best practices, backups, and incident prevention according to your plan.",
-        q14: "What if I want to evolve the site?",
-        a14: "It's planned. A site must evolve: new offers, new pages, performance improvements. Your subscription serves exactly that: preventing the site from becoming obsolete.",
+        q13: "Le site est-il sécurisé ?",
+        a13: "Oui, la sécurité fait partie du modèle : mises à jour, surveillance, bonnes pratiques, sauvegardes et prévention des incidents selon votre plan.",
+        q14: "Et si je veux faire évoluer le site ?",
+        a14: "C’est prévu. Un site doit évoluer : nouvelles offres, nouvelles pages, amélioration des performances. Votre abonnement sert justement à ça : éviter que le site devienne obsolète.",
 
-        q15: "How will your site help me generate more clients?",
+        q15: "Comment votre site va m’aider à générer plus de clients ?",
         a15: "By creating a clear path: immediate credibility, understandable offer, proof (reviews/cases), and effective calls to action. A good site isn't just 'beautiful', it makes the decision simpler.",
-        q16: "Do you optimize the site over time?",
-        a16: "Yes. We track what needs improvement (structure, clarity, speed, key pages, conversion). We don't sell a 'perfect' site on day 1: we build an asset that progresses.",
-        q17: "How soon can I see results?",
-        a17: "It depends on your market and acquisition (ads, social, SEO, partnerships). What we guarantee: a solid, credible, and scalable site that doesn't hinder your marketing efforts—and that we improve over time.",
+        q16: "Optimisez-vous le site dans le temps ?",
+        a16: "Oui. On suit ce qui doit s’améliorer (structure, clarté, vitesse, pages clés, conversion). On ne vend pas un site “parfait” le jour 1 : on construit un actif qui progresse.",
+        q17: "En combien de temps puis-je voir des résultats ?",
+        a17: "Ça dépend de votre marché et de votre acquisition (pub, réseaux, SEO, partenariat). Ce que nous garantissons : un site solide, crédible et évolutif, qui ne freine pas vos efforts marketing—et qu’on améliore au fil du temps.",
 
-        q18: "Why not hire a freelancer?",
-        a18: "A freelancer can be excellent. The real issue is continuity: availability, process, maintenance, security, evolution. ON Agency is designed as a reliable and structured long-term operator.",
-        q19: "Can I edit content myself?",
-        a19: "Yes, text and image content are editable. For deep structure, we handle it to ensure performance doesn't degrade.",
-        q20: "What are the launch timelines?",
-        a20: "Once elements are received, we aim for a first version launch in 72h, followed by rapid iterations for final validation."
+        q18: "Pourquoi ne pas passer par un freelance ?",
+        a18: "Un freelance peut être excellent. Le vrai sujet, c’est la continuité : disponibilité, process, maintenance, sécurité, évolution. ON Agency est conçu comme un opérateur long terme fiable et structuré.",
+        q19: "Puis-je modifier le contenu moi-même ?",
+        a19: "Oui, les contenus textes et images sont modifiables. Pour la structure profonde, nous nous en occupons pour garantir que les performances ne se dégradent pas.",
+        q20: "Quels sont les délais de mise en ligne ?",
+        a20: "Une fois les éléments reçus, nous visons une mise en ligne d'une première version en 72h, suivie d'itérations rapides pour la validation finale."
       }
     }
   },
   en: {
     nav: {
-      features: "Features",
+      features: "Projects",
       pricing: "Pricing",
       services: "Services",
       contact: "Contact",
@@ -370,22 +297,20 @@ const translations = {
       seo: "Technical SEO Optimization"
     },
     features: {
-      bigCard: {
-        badge: "Revolutionary Model",
-        title: "No more $5k quotes.",
-        desc: "With ON AGENCY, you pay $97/month for an all-inclusive service: creation, hosting, maintenance, and security. Keep your cash flow for growth.",
-        chartAgency: "Agency",
-        chartOn: "ON",
-        labelEco: "Initial Savings"
+      badge: "WORK",
+      title: "Recent Projects",
+      subtitle: "Discover how we turn ideas into digital experiences.",
+      headline: {
+        main: "Exceptional websites that tell",
+        italic: "your",
+        end: "story."
       },
-      codeCard: {
-        title: "Pure Code & Performance",
-        desc: "We are not a WordPress agency. We develop in pure code (React, TypeScript) for unmatched performance, maximum security, and native SEO."
-      },
-      ownerCard: {
-        title: "Ownership Transferred",
-        desc: "You are not a tenant for life. After 12 to 16 months of commitment, the source code belongs to you fully. Total transparency.",
-        progression: "Acquisition progress"
+      items: {
+        item1: { title: "Nexus Tech", category: "SaaS", desc: "Cloud management platform with real-time dashboard." },
+        item2: { title: "Lumina Art", category: "E-commerce", desc: "Digital art gallery with immersive experience." },
+        item3: { title: "Elevate Finance", category: "Fintech", desc: "Next-gen secure banking application." },
+        item4: { title: "Pulse Energy", category: "Corporate", desc: "Corporate site for a green energy leader." },
+        item5: { title: "PropVision", category: "Real Estate", desc: "Interactive 3D real estate visualization." }
       }
     },
     services: {
@@ -419,69 +344,11 @@ const translations = {
           cta: "See demo"
         },
         support: {
-          title: "Premium Support",
+          title: "Support Premium",
           desc: "A dedicated team of engineers available for you 7/7.",
           cta: "Contact"
         }
-      }
-    },
-    projects: {
-      badge: "PROJECTS",
-      headline: "Your online presence,",
-      headlineItalic: "finally ON.",
-      cta: "View all projects",
-      items: [
-        {
-          title: "Luxe & Co",
-          category: "E-commerce",
-          desc: "Complete overhaul of the shopping experience for a luxury leather goods brand.",
-          image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "+40%", label: "Conversion Rate" },
-            { value: "0.8s", label: "Load Time" }
-          ]
-        },
-        {
-          title: "TechFlow",
-          category: "SaaS B2B",
-          desc: "High-conversion landing page and dashboard for a fintech startup.",
-          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "3x", label: "More Qualified Leads" },
-            { value: "100", label: "Performance Score" }
-          ]
-        },
-        {
-          title: "Estate Privé",
-          category: "Real Estate",
-          desc: "Immersive showcase site for a prestige real estate agency.",
-          image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "+65%", label: "Time on Site" },
-            { value: "-50%", label: "Bounce Rate" }
-          ]
-        },
-        {
-          title: "Neon Food",
-          category: "Restaurant",
-          desc: "Experiential site for a modern restaurant chain.",
-          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "+20%", label: "Orders" },
-            { value: "4.9", label: "Avg Rating" }
-          ]
-        },
-        {
-          title: "AndyLo Portoflio",
-          category: "Personal",
-          desc: "Interactive portfolio for an art director.",
-          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-          stats: [
-            { value: "Awwwards", label: "Site of the Day" },
-            { value: "10k", label: "Visits/month" }
-          ]
-        }
-      ]
+      },
     },
     pricing: {
       monthly: "Monthly",
@@ -533,7 +400,7 @@ const translations = {
       }
     },
     footer: {
-      desc: "ON AGENCY redefines the web agency with an upfront-free, transparent, and high-performance model.",
+      desc: "ON AGENCY redéfinit the web agency with an upfront-free, transparent, and high-performance model.",
       company: "Company",
       about: "About",
       services: "Services",

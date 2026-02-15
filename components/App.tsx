@@ -8,7 +8,6 @@ import FounderNote from './components/FounderNote';
 import Benefits from './components/Benefits';
 import Features from './components/Features';
 import Services from './components/Services';
-import Projects from './components/Projects';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -54,7 +53,8 @@ const AppContent: React.FC = () => {
           e.preventDefault();
           const element = document.querySelector(href);
           if (element) {
-            lenis.scrollTo(element);
+            // Fix: Cast element to HTMLElement to match lenis.scrollTo signature
+            lenis.scrollTo(element as HTMLElement);
             setIsMobileMenuOpen(false); // Close mobile menu on navigation
           }
         }
@@ -72,13 +72,6 @@ const AppContent: React.FC = () => {
 
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  const navLinks = [
-    { href: "#benefits", label: t.nav.features },
-    { href: "#projects", label: "Projets" },
-    { href: "#pricing", label: t.nav.pricing },
-    { href: "#services", label: t.nav.services },
-  ];
-
   return (
     <div className="min-h-screen font-sans bg-[#F5F5F7] selection:bg-gray-200 selection:text-black overflow-x-hidden">
       <ScrollProgress />
@@ -94,16 +87,9 @@ const AppContent: React.FC = () => {
 
           {/* Centered Links (Desktop) */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-            {navLinks.map((link) => (
-              <a 
-                key={link.href} 
-                href={link.href} 
-                className="relative group py-1"
-              >
-                <span className="relative z-10 transition-colors group-hover:text-black">{link.label}</span>
-                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
-              </a>
-            ))}
+            <a href="#benefits" className="hover:text-black transition-colors">{t.nav.features}</a>
+            <a href="#pricing" className="hover:text-black transition-colors">{t.nav.pricing}</a>
+            <a href="#services" className="hover:text-black transition-colors">{t.nav.services}</a>
           </div>
 
           {/* CTA Right (Desktop) */}
@@ -153,15 +139,9 @@ const AppContent: React.FC = () => {
               className="absolute top-full left-0 right-0 mt-2 px-4 md:hidden"
             >
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <a 
-                    key={link.href}
-                    href={link.href} 
-                    className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium transition-colors active:bg-gray-100"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                <a href="#benefits" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.features}</a>
+                <a href="#pricing" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.pricing}</a>
+                <a href="#services" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.services}</a>
                 <div className="h-px bg-gray-100 my-1"></div>
                 <a href="#contact" className="text-center p-3 bg-black text-white rounded-xl font-semibold shadow-md active:scale-[0.98] transition-transform">
                   {t.nav.contact}
@@ -179,7 +159,6 @@ const AppContent: React.FC = () => {
         <FeatureScroll />
         <Features />
         <Services />
-        <Projects />
         <Pricing />
         <FAQ />
         <Contact />

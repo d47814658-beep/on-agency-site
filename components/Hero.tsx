@@ -5,6 +5,10 @@ import { MagneticButton } from './ui/MagneticButton';
 import { TextEffect } from './ui/text-effect';
 import { useLanguage } from './LanguageContext';
 
+// Fix: Cast motion components to any to avoid 'initial does not exist' errors
+const MotionDiv = motion.div as any;
+const MotionP = motion.p as any;
+
 const Hero: React.FC = () => {
   const { t, language } = useLanguage();
 
@@ -18,7 +22,7 @@ const Hero: React.FC = () => {
         
         {/* Concentric Circles (Ripples) */}
         {[1, 2, 3, 4].map((i) => (
-          <motion.div
+          <MotionDiv
             key={i}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ 
@@ -41,7 +45,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto w-full">
         
         {/* Badge Pill */}
-        <motion.div 
+        <MotionDiv 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -51,7 +55,7 @@ const Hero: React.FC = () => {
           <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-gray-700 whitespace-nowrap">
             {t.hero.badge}
           </span>
-        </motion.div>
+        </MotionDiv>
 
         {/* Main Visual Element + Title */}
         <div
@@ -59,7 +63,7 @@ const Hero: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
             {/* Logo Orb */}
-            <motion.div 
+            <MotionDiv 
               initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, ease: "backOut" }}
@@ -70,7 +74,7 @@ const Hero: React.FC = () => {
                   <rect x="0" y="0" width="55" height="29" rx="14.5" stroke="currentColor" strokeWidth="5" fill="none" />
                   <circle cx="43" cy="14.5" r="8" fill="currentColor" />
                </svg>
-            </motion.div>
+            </MotionDiv>
             
             {/* Large Text with Effect - Keyed by language to reset animation */}
             <div className="flex flex-col items-center md:items-start" key={language}>
@@ -93,7 +97,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Description */}
-        <motion.p 
+        <MotionP 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
@@ -101,10 +105,10 @@ const Hero: React.FC = () => {
         >
           {t.hero.description}<br className="hidden md:block"/>
           <span className="text-black font-semibold">{t.hero.price}</span> {t.hero.subDesc}
-        </motion.p>
+        </MotionP>
 
         {/* Buttons */}
-        <motion.div 
+        <MotionDiv 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.7, ease: "easeOut" }}
@@ -124,7 +128,7 @@ const Hero: React.FC = () => {
           >
             {t.hero.cta2}
           </MagneticButton>
-        </motion.div>
+        </MotionDiv>
 
       </div>
     </section>

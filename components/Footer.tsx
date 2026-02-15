@@ -4,6 +4,10 @@ import Logo from './Logo';
 import { motion } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
 
+// Fix: Cast motion components to any
+const MotionDiv = motion.div as any;
+const MotionA = motion.a as any;
+
 // Custom TikTok Icon
 const Tiktok = ({ className }: { className?: string }) => (
   <svg 
@@ -32,7 +36,7 @@ const FooterLink = ({ href, children }: { href: string, children?: React.ReactNo
 );
 
 const SocialButton = ({ href, label, children }: { href: string, label: string, children?: React.ReactNode }) => (
-  <motion.a 
+  <MotionA 
     href={href}
     target="_blank" 
     rel="noopener noreferrer"
@@ -42,7 +46,7 @@ const SocialButton = ({ href, label, children }: { href: string, label: string, 
     className="p-2.5 bg-gray-50 rounded-full text-gray-600 border border-transparent hover:border-gray-200 hover:bg-white hover:shadow-sm hover:text-black transition-all duration-300"
   >
     {children}
-  </motion.a>
+  </MotionA>
 );
 
 const Footer: React.FC = () => {
@@ -90,7 +94,7 @@ const Footer: React.FC = () => {
       
       {/* Giant Logo Reveal */}
       <div className="border-t border-gray-100 pt-10 flex flex-col items-center">
-         <motion.div 
+         <MotionDiv 
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             whileInView={{ opacity: 0.1, y: 0, scale: 1 }}
             viewport={{ once: false }}
@@ -98,7 +102,7 @@ const Footer: React.FC = () => {
             className="text-[12vw] font-black tracking-tighter leading-none text-black select-none pointer-events-none"
          >
             ON AGENCY
-         </motion.div>
+         </MotionDiv>
          <div className="mt-8 text-center text-xs text-gray-400">
             © {new Date().getFullYear()} ON AGENCY. {t.footer.rights}
          </div>

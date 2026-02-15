@@ -4,6 +4,11 @@ import { Section } from './ui/Section';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
 
+// Fix: Cast motion components to any
+const MotionDiv = motion.div as any;
+const MotionSpan = motion.span as any;
+const MotionA = motion.a as any;
+
 const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(false);
   const containerRef = useRef(null);
@@ -30,7 +35,7 @@ const Pricing: React.FC = () => {
               className={`relative px-6 py-2 rounded-full text-sm font-semibold transition-colors z-10 ${!isAnnual ? 'text-white' : 'text-gray-500'}`}
             >
               {!isAnnual && (
-                <motion.div
+                <MotionDiv
                   layoutId="pricing-pill"
                   className="absolute inset-0 bg-black rounded-full shadow-md"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -43,7 +48,7 @@ const Pricing: React.FC = () => {
               className={`relative px-6 py-2 rounded-full text-sm font-semibold transition-colors z-10 ${isAnnual ? 'text-white' : 'text-gray-500'}`}
             >
               {isAnnual && (
-                <motion.div
+                <MotionDiv
                   layoutId="pricing-pill"
                   className="absolute inset-0 bg-black rounded-full shadow-md"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -54,8 +59,9 @@ const Pricing: React.FC = () => {
           </div>
         </div>
 
-        <motion.div 
-          style={{ scale, opacity, willChange: 'transform, opacity' }}
+        <MotionDiv 
+          // Fix: Cast style to any to allow motion values in scale/opacity
+          style={{ scale, opacity, willChange: 'transform, opacity' } as any}
           className="relative bg-white/80 backdrop-blur-xl rounded-[32px] p-8 md:p-12 shadow-2xl border border-white/20 overflow-hidden"
         >
           {/* Animated Gradient Border (Grayscale) */}
@@ -70,7 +76,7 @@ const Pricing: React.FC = () => {
             <h3 className="text-gray-500 font-medium uppercase tracking-wide mb-2">{t.pricing.offer}</h3>
             <div className="flex items-baseline justify-center gap-1 h-16">
               <AnimatePresence mode="wait">
-                <motion.span 
+                <MotionSpan 
                   key={isAnnual ? "year" : "month"}
                   initial={{ opacity: 0, y: 10, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -79,7 +85,7 @@ const Pricing: React.FC = () => {
                   className="text-5xl font-extrabold tracking-tight text-gray-900"
                 >
                   {isAnnual ? "997$" : "97$"}
-                </motion.span>
+                </MotionSpan>
               </AnimatePresence>
               <span className="text-xl text-gray-500">
                 {isAnnual ? t.pricing.perYear : t.pricing.perMonth}
@@ -92,7 +98,7 @@ const Pricing: React.FC = () => {
 
           <div className="space-y-4 mb-10 relative z-10">
             {t.pricing.features.map((item, idx) => (
-              <motion.div 
+              <MotionDiv 
                 key={idx} 
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -104,23 +110,23 @@ const Pricing: React.FC = () => {
                   <Check className="w-3.5 h-3.5 text-white" />
                 </div>
                 <span className="text-gray-700 text-sm md:text-base">{item}</span>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
 
-          <motion.a 
+          <MotionA 
             href="#contact"
             whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.98 }}
             className="block w-full py-4 px-6 bg-black text-white font-bold rounded-xl transition-all shadow-lg shadow-black/20 relative z-10 text-center cursor-pointer"
           >
             {t.pricing.cta}
-          </motion.a>
+          </MotionA>
 
           <p className="text-center text-xs text-gray-400 mt-6 relative z-10">
             {t.pricing.disclaimer}
           </p>
-        </motion.div>
+        </MotionDiv>
       </div>
     </Section>
   );
