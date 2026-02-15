@@ -1,6 +1,7 @@
 import React from 'react';
 import { Marquee } from './ui/Marquee';
 import { useLanguage } from './LanguageContext';
+import { Layers } from 'lucide-react';
 
 const images = [
   "https://res.cloudinary.com/dpknc20k0/image/upload/v1771151649/media__1771151015580.jpg",
@@ -40,6 +41,11 @@ const Features: React.FC = () => {
 
         {/* Text Section (Right) */}
         <div className="w-full md:w-1/2 text-left">
+           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm mb-6">
+              <Layers className="w-3.5 h-3.5 text-white" />
+              <span className="text-[10px] font-bold tracking-widest uppercase text-white/90">{t.features.badge}</span>
+           </div>
+           
            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
              {t.features.headline.main} <br/>
              <span className="italic font-serif">{t.features.headline.italic}</span> <br/>

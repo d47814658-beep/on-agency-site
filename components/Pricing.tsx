@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Check } from 'lucide-react';
+import { Check, CreditCard } from 'lucide-react';
 import { Section } from './ui/Section';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
@@ -25,8 +25,19 @@ const Pricing: React.FC = () => {
 
   return (
     <Section id="pricing">
-      <div ref={containerRef} className="max-w-lg mx-auto">
+      <div ref={containerRef} className="max-w-lg mx-auto flex flex-col items-center">
         
+        {/* Section Badge */}
+        <MotionDiv 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm mb-8"
+        >
+            <CreditCard className="w-3.5 h-3.5 text-black" />
+            <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600">{t.pricing.sectionBadge}</span>
+        </MotionDiv>
+
         {/* Toggle Switch */}
         <div className="flex justify-center mb-10">
           <div className="bg-white p-1 rounded-full border border-gray-200 shadow-sm inline-flex relative z-10">
@@ -62,7 +73,7 @@ const Pricing: React.FC = () => {
         <MotionDiv 
           // Fix: Cast style to any to allow motion values in scale/opacity
           style={{ scale, opacity, willChange: 'transform, opacity' } as any}
-          className="relative bg-white/80 backdrop-blur-xl rounded-[32px] p-8 md:p-12 shadow-2xl border border-white/20 overflow-hidden"
+          className="w-full relative bg-white/80 backdrop-blur-xl rounded-[32px] p-8 md:p-12 shadow-2xl border border-white/20 overflow-hidden"
         >
           {/* Animated Gradient Border (Grayscale) */}
           <div className="absolute inset-0 p-[1px] rounded-[32px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-gradient-shift pointer-events-none -z-10" />

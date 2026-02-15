@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Section } from './ui/Section';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
+import { Quote } from 'lucide-react';
 
 // Fix: Cast motion.div to any
 const MotionDiv = motion.div as any;
@@ -15,10 +16,20 @@ const FounderNote: React.FC = () => {
     <Section id="about" className="py-32 md:py-48">
       <div ref={ref} className="flex flex-col items-center text-center max-w-5xl mx-auto relative">
         
+        <MotionDiv 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm mb-10"
+        >
+            <Quote className="w-3.5 h-3.5 text-black" />
+            <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600">{t.founder.badge}</span>
+        </MotionDiv>
+
         <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-3xl md:text-5xl md:leading-[1.15] font-medium text-gray-400 mb-12 tracking-tight"
         >
           "{t.founder.text1} <span className="text-black font-bold">{t.founder.bold1}</span> {t.founder.text2} <span className="text-black font-bold">{t.founder.bold2}</span> {t.founder.text3} <span className="text-black font-bold">{t.founder.bold3}</span>{t.founder.text4}"
@@ -27,7 +38,7 @@ const FounderNote: React.FC = () => {
         <MotionDiv
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
           className="flex flex-col items-center gap-3"
         >
           {/* Avatar / Icon */}

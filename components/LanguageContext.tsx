@@ -28,6 +28,7 @@ const translations = {
       cta2: "Découvrez nos services"
     },
     founder: {
+      badge: "VISION",
       text1: "Notre mission est de permettre à chaque entreprise d'avoir un",
       bold1: "site web professionnel",
       text2: "et optimisé sans que le",
@@ -121,6 +122,7 @@ const translations = {
       }
     },
     pricing: {
+      sectionBadge: "TARIFICATION",
       monthly: "Mensuel",
       annual: "Annuel",
       badge: "0$ UPFRONT",
@@ -174,7 +176,7 @@ const translations = {
       company: "Entreprise",
       about: "À propos",
       services: "Services",
-      careers: "Carrières",
+      careers: "Contact",
       rights: "Tous droits réservés."
     },
     faq: {
@@ -258,6 +260,7 @@ const translations = {
       cta2: "Discover services"
     },
     founder: {
+      badge: "VISION",
       text1: "Our mission is to enable every company to have a",
       bold1: "professional website",
       text2: "that is optimized without the",
@@ -351,6 +354,7 @@ const translations = {
       },
     },
     pricing: {
+      sectionBadge: "PRICING",
       monthly: "Monthly",
       annual: "Annual",
       badge: "0$ UPFRONT",
@@ -404,7 +408,7 @@ const translations = {
       company: "Company",
       about: "About",
       services: "Services",
-      careers: "Careers",
+      careers: "Contact",
       rights: "All rights reserved."
     },
     faq: {
