@@ -2,6 +2,31 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'fr' | 'en';
 
+interface ProjectStat {
+  value: string;
+  label: string;
+}
+
+interface ProjectItem {
+  title: string;
+  category: string;
+  desc: string;
+  stats: ProjectStat[];
+}
+
+interface Translations {
+  // ... other interfaces
+  projects: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    desc: string;
+    cta: string;
+    items: ProjectItem[];
+  };
+  // ...
+}
+
 interface LanguageContextType {
   language: Language;
   toggleLanguage: () => void;
@@ -121,6 +146,42 @@ const translations = {
           cta: "Contacter"
         }
       }
+    },
+    projects: {
+      badge: "PROJETS",
+      title: "Impact et résultats",
+      subtitle: "prouvés",
+      desc: "Découvrez des projets qui illustrent notre expertise et leur impact concret.",
+      cta: "Voir tous les projets",
+      items: [
+        {
+          title: "Luxe & Co — E-commerce Mode",
+          category: "E-commerce",
+          desc: "Refonte complète de l'expérience d'achat pour une marque de maroquinerie de luxe. Nous avons créé une interface fluide mettant en valeur les produits avec des animations subtiles.",
+          stats: [
+            { value: "+40%", label: "Taux de conversion" },
+            { value: "0.8s", label: "Temps de chargement" }
+          ]
+        },
+        {
+          title: "TechFlow — SaaS B2B",
+          category: "Logiciel / SaaS",
+          desc: "Développement d'une landing page haute conversion et de l'interface dashboard pour une startup fintech. Focus sur la clarté de l'information et la rapidité d'exécution.",
+          stats: [
+            { value: "3x", label: "Plus de leads qualifiés" },
+            { value: "100", label: "Score Performance" }
+          ]
+        },
+        {
+          title: "Estate Privé — Immobilier",
+          category: "Immobilier Prestige",
+          desc: "Site vitrine immersif pour une agence immobilière de prestige. Intégration de visites virtuelles fluides et d'une carte interactive sans compromis sur la performance.",
+          stats: [
+            { value: "+65%", label: "Temps passé sur le site" },
+            { value: "-50%", label: "Taux de rebond" }
+          ]
+        }
+      ]
     },
     pricing: {
       monthly: "Mensuel",
@@ -353,6 +414,42 @@ const translations = {
           cta: "Contact"
         }
       }
+    },
+    projects: {
+      badge: "PROJECTS",
+      title: "Proven impact",
+      subtitle: "& results",
+      desc: "Discover projects that illustrate our expertise and their concrete impact.",
+      cta: "View all projects",
+      items: [
+        {
+          title: "Luxe & Co — Fashion E-commerce",
+          category: "E-commerce",
+          desc: "Complete overhaul of the shopping experience for a luxury leather goods brand. We created a fluid interface highlighting products with subtle animations.",
+          stats: [
+            { value: "+40%", label: "Conversion Rate" },
+            { value: "0.8s", label: "Load Time" }
+          ]
+        },
+        {
+          title: "TechFlow — SaaS B2B",
+          category: "Software / SaaS",
+          desc: "Development of a high-conversion landing page and dashboard interface for a fintech startup. Focus on clarity of information and speed of execution.",
+          stats: [
+            { value: "3x", label: "More Qualified Leads" },
+            { value: "100", label: "Performance Score" }
+          ]
+        },
+        {
+          title: "Estate Privé — Real Estate",
+          category: "Luxury Real Estate",
+          desc: "Immersive showcase site for a prestige real estate agency. Integration of seamless virtual tours and interactive maps without compromising performance.",
+          stats: [
+            { value: "+65%", label: "Time on Site" },
+            { value: "-50%", label: "Bounce Rate" }
+          ]
+        }
+      ]
     },
     pricing: {
       monthly: "Monthly",

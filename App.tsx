@@ -8,6 +8,7 @@ import FounderNote from './components/FounderNote';
 import Benefits from './components/Benefits';
 import Features from './components/Features';
 import Services from './components/Services';
+import Projects from './components/Projects';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -128,6 +129,7 @@ const AppContent: React.FC = () => {
         <FeatureScroll />
         <Features />
         <Services />
+        <Projects />
         <Pricing />
         <FAQ />
         <Contact />
