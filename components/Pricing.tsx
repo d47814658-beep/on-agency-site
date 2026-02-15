@@ -108,13 +108,14 @@ const Pricing: React.FC = () => {
             ))}
           </div>
 
-          <motion.button 
+          <motion.a 
+            href="#contact"
             whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-4 px-6 bg-black text-white font-bold rounded-xl transition-all shadow-lg shadow-black/20 relative z-10"
+            className="block w-full py-4 px-6 bg-black text-white font-bold rounded-xl transition-all shadow-lg shadow-black/20 relative z-10 text-center cursor-pointer"
           >
             {t.pricing.cta}
-          </motion.button>
+          </motion.a>
 
           <p className="text-center text-xs text-gray-400 mt-6 relative z-10">
             {t.pricing.disclaimer}

@@ -9,7 +9,7 @@ const FounderNote: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <Section className="py-32 md:py-48">
+    <Section id="about" className="py-32 md:py-48">
       <div ref={ref} className="flex flex-col items-center text-center max-w-5xl mx-auto relative">
         
         <motion.div

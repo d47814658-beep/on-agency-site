@@ -169,10 +169,10 @@ const Services: React.FC = () => {
                 <h3 className="text-xl font-bold mb-2">{t.services.cards.performance.title}</h3>
                 <p className="text-sm text-gray-500">{t.services.cards.performance.desc}</p>
              </div>
-             <div className="mt-6 pt-6 border-t border-gray-50 flex items-center justify-between group cursor-pointer">
+             <a href="#contact" className="mt-6 pt-6 border-t border-gray-50 flex items-center justify-between group cursor-pointer hover:bg-gray-50 transition-colors rounded-b-xl -mx-8 -mb-8 px-8 py-4">
                 <span className="text-sm font-semibold text-gray-900">{t.services.cards.performance.cta}</span>
                 <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
-             </div>
+             </a>
           </motion.div>
 
           {/* Card 4: Analytics */}
@@ -187,10 +187,10 @@ const Services: React.FC = () => {
                 <h3 className="text-xl font-bold mb-2">{t.services.cards.analytics.title}</h3>
                 <p className="text-sm text-gray-500">{t.services.cards.analytics.desc}</p>
              </div>
-             <div className="mt-6 pt-6 border-t border-gray-50 flex items-center justify-between group cursor-pointer">
+             <a href="#contact" className="mt-6 pt-6 border-t border-gray-50 flex items-center justify-between group cursor-pointer hover:bg-gray-50 transition-colors rounded-b-xl -mx-8 -mb-8 px-8 py-4">
                 <span className="text-sm font-semibold text-gray-900">{t.services.cards.analytics.cta}</span>
                 <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
-             </div>
+             </a>
           </motion.div>
 
           {/* Card 5: Support */}
@@ -207,10 +207,10 @@ const Services: React.FC = () => {
                 <h3 className="text-xl font-bold mb-2 text-white">{t.services.cards.support.title}</h3>
                 <p className="text-sm text-gray-400">{t.services.cards.support.desc}</p>
              </div>
-             <div className="mt-6 pt-6 border-t border-gray-800 flex items-center justify-between group cursor-pointer relative z-10">
+             <a href="#contact" className="mt-6 pt-6 border-t border-gray-800 flex items-center justify-between group cursor-pointer relative z-10 hover:bg-gray-900 transition-colors rounded-b-xl -mx-8 -mb-8 px-8 py-4">
                 <span className="text-sm font-semibold text-white">{t.services.cards.support.cta}</span>
                 <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
-             </div>
+             </a>
           </motion.div>
 
         </div>

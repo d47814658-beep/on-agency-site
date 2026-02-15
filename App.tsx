@@ -22,6 +22,7 @@ const AppContent: React.FC = () => {
   const { t, language, toggleLanguage } = useLanguage();
   
   useEffect(() => {
+    // Initialize Smooth Scroll
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -41,9 +42,31 @@ const AppContent: React.FC = () => {
 
     rafId = requestAnimationFrame(raf);
 
+    // Global click handler for anchor links
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      
+      if (anchor) {
+        const href = anchor.getAttribute('href');
+        // Only intercept internal hash links
+        if (href?.startsWith('#')) {
+          e.preventDefault();
+          const element = document.querySelector(href);
+          if (element) {
+            lenis.scrollTo(element);
+            setIsMobileMenuOpen(false); // Close mobile menu on navigation
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      document.removeEventListener('click', handleAnchorClick);
     };
   }, []);
 
@@ -55,14 +78,17 @@ const AppContent: React.FC = () => {
       
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4 md:py-6 bg-transparent">
         <div className="max-w-7xl mx-auto flex justify-between items-center backdrop-blur-md bg-white/70 border border-white/40 rounded-2xl px-4 md:px-6 py-3 shadow-sm relative">
-          {/* Logo Left */}
+          {/* Logo Left - Scroll to Hero */}
           <div className="flex items-center w-[120px] md:w-[140px]">
-            <Logo className="h-6 md:h-8 text-black" />
+            <a href="#hero" className="block cursor-pointer" aria-label="Back to top">
+              <Logo className="h-6 md:h-8 text-black" />
+            </a>
           </div>
 
           {/* Centered Links (Desktop) */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
             <a href="#benefits" className="hover:text-black transition-colors">{t.nav.features}</a>
+            <a href="#projects" className="hover:text-black transition-colors">Projets</a>
             <a href="#pricing" className="hover:text-black transition-colors">{t.nav.pricing}</a>
             <a href="#services" className="hover:text-black transition-colors">{t.nav.services}</a>
           </div>
@@ -109,11 +135,12 @@ const AppContent: React.FC = () => {
               className="absolute top-full left-0 right-0 mt-2 px-4 md:hidden"
             >
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col gap-4">
-                <a href="#benefits" onClick={toggleMenu} className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.features}</a>
-                <a href="#pricing" onClick={toggleMenu} className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.pricing}</a>
-                <a href="#services" onClick={toggleMenu} className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.services}</a>
+                <a href="#benefits" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.features}</a>
+                <a href="#projects" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">Projets</a>
+                <a href="#pricing" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.pricing}</a>
+                <a href="#services" className="p-3 hover:bg-gray-50 rounded-xl text-gray-800 font-medium">{t.nav.services}</a>
                 <div className="h-px bg-gray-100 my-1"></div>
-                <a href="#contact" onClick={toggleMenu} className="text-center p-3 bg-black text-white rounded-xl font-semibold">
+                <a href="#contact" className="text-center p-3 bg-black text-white rounded-xl font-semibold">
                   {t.nav.contact}
                 </a>
               </div>

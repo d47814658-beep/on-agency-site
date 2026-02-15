@@ -12,19 +12,7 @@ interface ProjectItem {
   category: string;
   desc: string;
   stats: ProjectStat[];
-}
-
-interface Translations {
-  // ... other interfaces
-  projects: {
-    badge: string;
-    title: string;
-    subtitle: string;
-    desc: string;
-    cta: string;
-    items: ProjectItem[];
-  };
-  // ...
+  image?: string;
 }
 
 interface LanguageContextType {
@@ -149,36 +137,58 @@ const translations = {
     },
     projects: {
       badge: "PROJETS",
-      title: "Impact et résultats",
-      subtitle: "prouvés",
-      desc: "Découvrez des projets qui illustrent notre expertise et leur impact concret.",
+      headline: "Votre présence en ligne,",
+      headlineItalic: "enfin sur ON.",
       cta: "Voir tous les projets",
       items: [
         {
-          title: "Luxe & Co — E-commerce Mode",
+          title: "Luxe & Co",
           category: "E-commerce",
-          desc: "Refonte complète de l'expérience d'achat pour une marque de maroquinerie de luxe. Nous avons créé une interface fluide mettant en valeur les produits avec des animations subtiles.",
+          desc: "Refonte complète de l'expérience d'achat pour une marque de maroquinerie de luxe.",
+          image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop",
           stats: [
-            { value: "+40%", label: "Taux de conversion" },
-            { value: "0.8s", label: "Temps de chargement" }
+            { value: "+40%", label: "Conversion Rate" },
+            { value: "0.8s", label: "Load Time" }
           ]
         },
         {
-          title: "TechFlow — SaaS B2B",
-          category: "Logiciel / SaaS",
-          desc: "Développement d'une landing page haute conversion et de l'interface dashboard pour une startup fintech. Focus sur la clarté de l'information et la rapidité d'exécution.",
+          title: "TechFlow",
+          category: "SaaS B2B",
+          desc: "Landing page haute conversion et dashboard pour une startup fintech.",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
           stats: [
-            { value: "3x", label: "Plus de leads qualifiés" },
-            { value: "100", label: "Score Performance" }
+            { value: "3x", label: "More Qualified Leads" },
+            { value: "100", label: "Performance Score" }
           ]
         },
         {
-          title: "Estate Privé — Immobilier",
-          category: "Immobilier Prestige",
-          desc: "Site vitrine immersif pour une agence immobilière de prestige. Intégration de visites virtuelles fluides et d'une carte interactive sans compromis sur la performance.",
+          title: "Estate Privé",
+          category: "Immobilier",
+          desc: "Site vitrine immersif pour une agence immobilière de prestige.",
+          image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
           stats: [
-            { value: "+65%", label: "Temps passé sur le site" },
-            { value: "-50%", label: "Taux de rebond" }
+            { value: "+65%", label: "Time on Site" },
+            { value: "-50%", label: "Bounce Rate" }
+          ]
+        },
+        {
+          title: "Neon Food",
+          category: "Restauration",
+          desc: "Site expérientiel pour une chaîne de restaurants modernes.",
+          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop",
+          stats: [
+            { value: "+20%", label: "Commandes" },
+            { value: "4.9", label: "Avis Moyen" }
+          ]
+        },
+        {
+          title: "AndyLo Portoflio",
+          category: "Personnel",
+          desc: "Portfolio interactif pour un directeur artistique.",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+          stats: [
+            { value: "Awwwards", label: "Site of the Day" },
+            { value: "10k", label: "Visits/mois" }
           ]
         }
       ]
@@ -281,24 +291,24 @@ const translations = {
         a11: "Vous possédez vos contenus et votre marque (textes fournis, logos, médias, données). Pour la partie technique et l’architecture opérée en abonnement, tout est clarifié au contrat : l’objectif est que vous soyez protégé et que l’exploitation reste stable.",
         q12: "Où est hébergé le site ?",
         a12: "Sur une infrastructure fiable et adaptée à votre besoin (performance, disponibilité, sécurité). Le choix est fait pour la stabilité, pas pour “gratter” 3€ par mois.",
-        q13: "Le site est-il sécurisé ?",
-        a13: "Oui, la sécurité fait partie du modèle : mises à jour, surveillance, bonnes pratiques, sauvegardes et prévention des incidents selon votre plan.",
-        q14: "Et si je veux faire évoluer le site ?",
-        a14: "C’est prévu. Un site doit évoluer : nouvelles offres, nouvelles pages, amélioration des performances. Votre abonnement sert justement à ça : éviter que le site devienne obsolète.",
+        q13: "Is the site secure?",
+        a13: "Yes, security is part of the model: updates, monitoring, best practices, backups, and incident prevention according to your plan.",
+        q14: "What if I want to evolve the site?",
+        a14: "It's planned. A site must evolve: new offers, new pages, performance improvements. Your subscription serves exactly that: preventing the site from becoming obsolete.",
 
-        q15: "Comment votre site va m’aider à générer plus de clients ?",
-        a15: "En créant un parcours clair : crédibilité immédiate, offre compréhensible, preuves (avis/cas), et appels à l’action efficaces. Un bon site n’est pas “beau”, il rend la décision plus simple.",
-        q16: "Optimisez-vous le site dans le temps ?",
-        a16: "Oui. On suit ce qui doit s’améliorer (structure, clarté, vitesse, pages clés, conversion). On ne vend pas un site “parfait” le jour 1 : on construit un actif qui progresse.",
-        q17: "En combien de temps puis-je voir des résultats ?",
-        a17: "Ça dépend de votre marché et de votre acquisition (pub, réseaux, SEO, partenariat). Ce que nous garantissons : un site solide, crédible et évolutif, qui ne freine pas vos efforts marketing—et qu’on améliore au fil du temps.",
+        q15: "How will your site help me generate more clients?",
+        a15: "By creating a clear path: immediate credibility, understandable offer, proof (reviews/cases), and effective calls to action. A good site isn't just 'beautiful', it makes the decision simpler.",
+        q16: "Do you optimize the site over time?",
+        a16: "Yes. We track what needs improvement (structure, clarity, speed, key pages, conversion). We don't sell a 'perfect' site on day 1: we build an asset that progresses.",
+        q17: "How soon can I see results?",
+        a17: "It depends on your market and acquisition (ads, social, SEO, partnerships). What we guarantee: a solid, credible, and scalable site that doesn't hinder your marketing efforts—and that we improve over time.",
 
-        q18: "Pourquoi ne pas passer par un freelance ?",
-        a18: "Un freelance peut être excellent. Le vrai sujet, c’est la continuité : disponibilité, process, maintenance, sécurité, évolution. ON Agency est conçu comme un opérateur long terme fiable et structuré.",
-        q19: "Puis-je modifier le contenu moi-même ?",
-        a19: "Oui, les contenus textes et images sont modifiables. Pour la structure profonde, nous nous en occupons pour garantir que les performances ne se dégradent pas.",
-        q20: "Quels sont les délais de mise en ligne ?",
-        a20: "Une fois les éléments reçus, nous visons une mise en ligne d'une première version en 72h, suivie d'itérations rapides pour la validation finale."
+        q18: "Why not hire a freelancer?",
+        a18: "A freelancer can be excellent. The real issue is continuity: availability, process, maintenance, security, evolution. ON Agency is designed as a reliable and structured long-term operator.",
+        q19: "Can I edit content myself?",
+        a19: "Yes, text and image content are editable. For deep structure, we handle it to ensure performance doesn't degrade.",
+        q20: "What are the launch timelines?",
+        a20: "Once elements are received, we aim for a first version launch in 72h, followed by rapid iterations for final validation."
       }
     }
   },
@@ -417,36 +427,58 @@ const translations = {
     },
     projects: {
       badge: "PROJECTS",
-      title: "Proven impact",
-      subtitle: "& results",
-      desc: "Discover projects that illustrate our expertise and their concrete impact.",
+      headline: "Your online presence,",
+      headlineItalic: "finally ON.",
       cta: "View all projects",
       items: [
         {
-          title: "Luxe & Co — Fashion E-commerce",
+          title: "Luxe & Co",
           category: "E-commerce",
-          desc: "Complete overhaul of the shopping experience for a luxury leather goods brand. We created a fluid interface highlighting products with subtle animations.",
+          desc: "Complete overhaul of the shopping experience for a luxury leather goods brand.",
+          image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop",
           stats: [
             { value: "+40%", label: "Conversion Rate" },
             { value: "0.8s", label: "Load Time" }
           ]
         },
         {
-          title: "TechFlow — SaaS B2B",
-          category: "Software / SaaS",
-          desc: "Development of a high-conversion landing page and dashboard interface for a fintech startup. Focus on clarity of information and speed of execution.",
+          title: "TechFlow",
+          category: "SaaS B2B",
+          desc: "High-conversion landing page and dashboard for a fintech startup.",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
           stats: [
             { value: "3x", label: "More Qualified Leads" },
             { value: "100", label: "Performance Score" }
           ]
         },
         {
-          title: "Estate Privé — Real Estate",
-          category: "Luxury Real Estate",
-          desc: "Immersive showcase site for a prestige real estate agency. Integration of seamless virtual tours and interactive maps without compromising performance.",
+          title: "Estate Privé",
+          category: "Real Estate",
+          desc: "Immersive showcase site for a prestige real estate agency.",
+          image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
           stats: [
             { value: "+65%", label: "Time on Site" },
             { value: "-50%", label: "Bounce Rate" }
+          ]
+        },
+        {
+          title: "Neon Food",
+          category: "Restaurant",
+          desc: "Experiential site for a modern restaurant chain.",
+          image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop",
+          stats: [
+            { value: "+20%", label: "Orders" },
+            { value: "4.9", label: "Avg Rating" }
+          ]
+        },
+        {
+          title: "AndyLo Portoflio",
+          category: "Personal",
+          desc: "Interactive portfolio for an art director.",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+          stats: [
+            { value: "Awwwards", label: "Site of the Day" },
+            { value: "10k", label: "Visits/month" }
           ]
         }
       ]

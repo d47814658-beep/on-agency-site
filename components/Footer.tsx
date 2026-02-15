@@ -4,7 +4,7 @@ import Logo from './Logo';
 import { motion } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
 
-// Custom TikTok Icon (since it's not always in lucide-react default exports)
+// Custom TikTok Icon
 const Tiktok = ({ className }: { className?: string }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -62,9 +62,9 @@ const Footer: React.FC = () => {
           <div>
             <h5 className="font-semibold mb-4 text-gray-900">{t.footer.company}</h5>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="#" className="hover:text-black transition-colors">{t.footer.about}</a></li>
+              <li><a href="#about" className="hover:text-black transition-colors">{t.footer.about}</a></li>
               <li><a href="#services" className="hover:text-black transition-colors">{t.footer.services}</a></li>
-              <li><a href="#" className="hover:text-black transition-colors">{t.footer.careers}</a></li>
+              <li><a href="#contact" className="hover:text-black transition-colors">{t.footer.careers}</a></li>
             </ul>
           </div>
         </div>
