@@ -1,5 +1,8 @@
 {
   "name": "ON AGENCY - Premium Web Solutions",
   "description": "High-performance, pure code web agency offering premium sites with $0 upfront cost.",
+  "keywords": "web agency, premium websites, no upfront cost, next.js, react, seo",
+  "author": "ON AGENCY",
+  "viewport": "width=device-width, initial-scale=1",
   "requestFramePermissions": []
 }

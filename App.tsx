@@ -14,11 +14,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Logo from './components/Logo';
 import { ScrollProgress } from './components/ui/ScrollProgress';
+import { ScrollToTop } from './components/ui/ScrollToTop';
 import { LanguageProvider, useLanguage } from './components/LanguageContext';
-
-// Fix: Cast motion components to any
-const MotionDiv = motion.div as any;
-const MotionA = motion.a as any;
 
 const AppContent: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -57,7 +54,7 @@ const AppContent: React.FC = () => {
           e.preventDefault();
           const element = document.querySelector(href);
           if (element) {
-            // Fix: Cast element to HTMLElement
+            // Fix: Cast element to HTMLElement to match lenis.scrollTo signature
             lenis.scrollTo(element as HTMLElement);
             setIsMobileMenuOpen(false); // Close mobile menu on navigation
           }
@@ -79,6 +76,7 @@ const AppContent: React.FC = () => {
   return (
     <div className="min-h-screen font-sans bg-[#F5F5F7] selection:bg-gray-200 selection:text-black overflow-x-hidden">
       <ScrollProgress />
+      <ScrollToTop />
       
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4 md:py-6 bg-transparent">
         <div className="max-w-7xl mx-auto flex justify-between items-center backdrop-blur-md bg-white/70 border border-white/40 rounded-2xl px-4 md:px-6 py-3 shadow-sm relative transition-shadow hover:shadow-md duration-500">
@@ -106,14 +104,14 @@ const AppContent: React.FC = () => {
               <span className="text-gray-300">/</span>
               <span className={language === 'en' ? "text-black" : "text-gray-400"}>EN</span>
             </button>
-            <MotionA 
+            <motion.a 
               href="#contact" 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="text-xs md:text-sm font-semibold px-4 md:px-5 py-2 md:py-2.5 bg-black text-white rounded-xl hover:bg-gray-900 transition-colors shadow-lg shadow-black/20"
             >
               {t.nav.contact}
-            </MotionA>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -135,7 +133,7 @@ const AppContent: React.FC = () => {
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <MotionDiv
+            <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -151,7 +149,7 @@ const AppContent: React.FC = () => {
                   {t.nav.contact}
                 </a>
               </div>
-            </MotionDiv>
+            </motion.div>
           )}
         </AnimatePresence>
       </nav>
