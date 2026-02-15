@@ -115,12 +115,12 @@ const Hero: React.FC = () => {
             className="group w-full sm:w-auto min-w-[200px] inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white bg-black rounded-2xl shadow-xl shadow-black/10"
           >
             {t.hero.cta1}
-            <ArrowUpRight className="ml-2 w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+            <ArrowUpRight className="ml-2 w-4 h-4 text-gray-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
           </MagneticButton>
           
           <MagneticButton 
             href="#services"
-            className="w-full sm:w-auto min-w-[200px] inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-2xl hover:bg-gray-50 transition-all shadow-sm"
+            className="w-full sm:w-auto min-w-[200px] inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-2xl hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm hover:shadow-md duration-300"
           >
             {t.hero.cta2}
           </MagneticButton>

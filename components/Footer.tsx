@@ -22,6 +22,29 @@ const Tiktok = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const FooterLink = ({ href, children }: { href: string, children?: React.ReactNode }) => (
+  <li>
+    <a href={href} className="relative group inline-block py-0.5">
+      <span className="relative z-10 text-gray-500 group-hover:text-black transition-colors">{children}</span>
+      <span className="absolute bottom-0 left-0 w-full h-px bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
+    </a>
+  </li>
+);
+
+const SocialButton = ({ href, label, children }: { href: string, label: string, children?: React.ReactNode }) => (
+  <motion.a 
+    href={href}
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label={label}
+    whileHover={{ scale: 1.1, rotate: 5 }}
+    whileTap={{ scale: 0.95 }}
+    className="p-2.5 bg-gray-50 rounded-full text-gray-600 border border-transparent hover:border-gray-200 hover:bg-white hover:shadow-sm hover:text-black transition-all duration-300"
+  >
+    {children}
+  </motion.a>
+);
+
 const Footer: React.FC = () => {
   const { t } = useLanguage();
 
@@ -37,34 +60,29 @@ const Footer: React.FC = () => {
             {t.footer.desc}
           </p>
           <div className="flex gap-4">
-            <a 
+            <SocialButton 
               href="https://www.instagram.com/onagency.site?igsh=MWw1dTBwb3Vra3YyZg==" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-2 bg-gray-50 rounded-full hover:bg-gray-100 text-gray-600 transition-colors"
-              aria-label="Instagram"
+              label="Instagram"
             >
               <Instagram className="w-5 h-5" />
-            </a>
-            <a 
+            </SocialButton>
+            
+            <SocialButton 
               href="https://www.tiktok.com/@on_agency1?_r=1&_t=ZN-93vN7DGAm4E" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-2 bg-gray-50 rounded-full hover:bg-gray-100 text-gray-600 transition-colors"
-              aria-label="TikTok"
+              label="TikTok"
             >
               <Tiktok className="w-5 h-5" />
-            </a>
+            </SocialButton>
           </div>
         </div>
 
         <div className="flex gap-12 md:gap-24">
           <div>
-            <h5 className="font-semibold mb-4 text-gray-900">{t.footer.company}</h5>
-            <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="#about" className="hover:text-black transition-colors">{t.footer.about}</a></li>
-              <li><a href="#services" className="hover:text-black transition-colors">{t.footer.services}</a></li>
-              <li><a href="#contact" className="hover:text-black transition-colors">{t.footer.careers}</a></li>
+            <h5 className="font-semibold mb-4 text-gray-900 tracking-tight">{t.footer.company}</h5>
+            <ul className="space-y-2 text-sm">
+              <FooterLink href="#about">{t.footer.about}</FooterLink>
+              <FooterLink href="#services">{t.footer.services}</FooterLink>
+              <FooterLink href="#contact">{t.footer.careers}</FooterLink>
             </ul>
           </div>
         </div>
