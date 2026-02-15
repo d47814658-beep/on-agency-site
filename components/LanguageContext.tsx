@@ -18,7 +18,7 @@ const translations = {
       start: "Commencer"
     },
     hero: {
-      badge: "AGENCE WEB PREMIUM & SUR-MESURE",
+      badge: "Agence Web Premium",
       title1: "Sites Web Premium",
       title2: "Sans Upfront",
       description: "Activez votre présence digitale sans barrière financière.",
@@ -250,7 +250,7 @@ const translations = {
       start: "Start"
     },
     hero: {
-      badge: "PREMIUM & TAILOR-MADE WEB AGENCY",
+      badge: "Premium Web Agency",
       title1: "Premium Websites",
       title2: "$0 Upfront",
       description: "Activate your digital presence without financial barriers.",

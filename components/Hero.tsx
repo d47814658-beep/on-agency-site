@@ -44,15 +44,15 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto w-full">
         
-        {/* Badge Pill */}
+        {/* Badge Pill - Stylized Chip */}
         <MotionDiv 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-8 md:mb-10 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-gray-200/80 shadow-sm backdrop-blur-sm"
+          className="mb-8 md:mb-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-b from-white to-gray-50 border border-gray-200/60 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] backdrop-blur-md"
         >
-          <Sparkles className="w-3.5 h-3.5 text-gray-700 flex-shrink-0" />
-          <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-gray-700 whitespace-nowrap">
+          <Sparkles className="w-3.5 h-3.5 text-black flex-shrink-0" />
+          <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-gray-800 whitespace-nowrap">
             {t.hero.badge}
           </span>
         </MotionDiv>
