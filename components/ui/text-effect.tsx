@@ -228,3 +228,13 @@ export function TextEffect({
     </AnimatePresence>
   );
 }
+
+export function TextEffectPerChar(props: Omit<TextEffectProps, 'per' | 'preset'>) {
+  return (
+    <TextEffect
+      {...props}
+      per="char"
+      preset="shake"
+    />
+  );
+}

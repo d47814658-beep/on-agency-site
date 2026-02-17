@@ -32,40 +32,40 @@ const Pricing: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 shadow-sm mb-8"
         >
-            <CreditCard className="w-3.5 h-3.5 text-black" />
-            <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600">{t.pricing.sectionBadge}</span>
+            <CreditCard className="w-3.5 h-3.5 text-black dark:text-white" />
+            <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600 dark:text-gray-300">{t.pricing.sectionBadge}</span>
         </MotionDiv>
 
         {/* Toggle Switch */}
         <div className="flex justify-center mb-10">
-          <div className="bg-white p-1 rounded-full border border-gray-200 shadow-sm inline-flex relative z-10">
+          <div className="bg-white dark:bg-neutral-900 p-1 rounded-full border border-gray-200 dark:border-neutral-800 shadow-sm inline-flex relative z-10">
             <button
               onClick={() => setIsAnnual(false)}
-              className={`relative px-6 py-2 rounded-full text-sm font-semibold transition-colors z-10 ${!isAnnual ? 'text-white' : 'text-gray-500'}`}
+              className={`relative px-6 py-2 rounded-full text-sm font-semibold transition-colors z-10 ${!isAnnual ? 'text-white' : 'text-gray-500 dark:text-gray-400'}`}
             >
               {!isAnnual && (
                 <MotionDiv
                   layoutId="pricing-pill"
-                  className="absolute inset-0 bg-black rounded-full shadow-md"
+                  className="absolute inset-0 bg-black dark:bg-white rounded-full shadow-md"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
-              <span className="relative">{t.pricing.monthly}</span>
+              <span className={`relative ${!isAnnual ? 'dark:text-black' : ''}`}>{t.pricing.monthly}</span>
             </button>
             <button
               onClick={() => setIsAnnual(true)}
-              className={`relative px-6 py-2 rounded-full text-sm font-semibold transition-colors z-10 ${isAnnual ? 'text-white' : 'text-gray-500'}`}
+              className={`relative px-6 py-2 rounded-full text-sm font-semibold transition-colors z-10 ${isAnnual ? 'text-white' : 'text-gray-500 dark:text-gray-400'}`}
             >
               {isAnnual && (
                 <MotionDiv
                   layoutId="pricing-pill"
-                  className="absolute inset-0 bg-black rounded-full shadow-md"
+                  className="absolute inset-0 bg-black dark:bg-white rounded-full shadow-md"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
-              <span className="relative">{t.pricing.annual}</span>
+              <span className={`relative ${isAnnual ? 'dark:text-black' : ''}`}>{t.pricing.annual}</span>
             </button>
           </div>
         </div>
@@ -73,18 +73,18 @@ const Pricing: React.FC = () => {
         <MotionDiv 
           // Fix: Cast style to any to allow motion values in scale/opacity
           style={{ scale, opacity, willChange: 'transform, opacity' } as any}
-          className="w-full relative bg-white/80 backdrop-blur-xl rounded-[32px] p-8 md:p-12 shadow-2xl border border-white/20 overflow-hidden"
+          className="w-full relative bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl rounded-[32px] p-8 md:p-12 shadow-2xl border border-white/20 dark:border-white/10 overflow-hidden"
         >
           {/* Animated Gradient Border (Grayscale) */}
-          <div className="absolute inset-0 p-[1px] rounded-[32px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-gradient-shift pointer-events-none -z-10" />
+          <div className="absolute inset-0 p-[1px] rounded-[32px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-neutral-800 dark:via-neutral-700 dark:to-neutral-800 bg-[length:200%_100%] animate-gradient-shift pointer-events-none -z-10" />
           
           {/* Badge */}
-          <div className="absolute top-0 right-0 bg-black text-white text-xs font-bold px-6 py-2 rounded-bl-2xl z-20">
+          <div className="absolute top-0 right-0 bg-black dark:bg-white text-white dark:text-black text-xs font-bold px-6 py-2 rounded-bl-2xl z-20">
             {t.pricing.badge}
           </div>
 
           <div className="text-center mb-8 relative z-10">
-            <h3 className="text-gray-500 font-medium uppercase tracking-wide mb-2">{t.pricing.offer}</h3>
+            <h3 className="text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide mb-2">{t.pricing.offer}</h3>
             <div className="flex items-baseline justify-center gap-1 h-16">
               <AnimatePresence mode="wait">
                 <MotionSpan 
@@ -93,16 +93,16 @@ const Pricing: React.FC = () => {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.9 }}
                   transition={{ duration: 0.3, type: "spring" }}
-                  className="text-5xl font-extrabold tracking-tight text-gray-900"
+                  className="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white"
                 >
                   {isAnnual ? "997$" : "97$"}
                 </MotionSpan>
               </AnimatePresence>
-              <span className="text-xl text-gray-500">
+              <span className="text-xl text-gray-500 dark:text-gray-400">
                 {isAnnual ? t.pricing.perYear : t.pricing.perMonth}
               </span>
             </div>
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="mt-2 text-sm text-gray-400 dark:text-gray-500">
               {isAnnual ? t.pricing.subYear : t.pricing.subMonth}
             </p>
           </div>
@@ -117,10 +117,10 @@ const Pricing: React.FC = () => {
                 transition={{ delay: idx * 0.05 }}
                 className="flex items-center gap-3"
               >
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-black flex items-center justify-center">
-                  <Check className="w-3.5 h-3.5 text-white" />
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-black dark:bg-white flex items-center justify-center">
+                  <Check className="w-3.5 h-3.5 text-white dark:text-black" />
                 </div>
-                <span className="text-gray-700 text-sm md:text-base">{item}</span>
+                <span className="text-gray-700 dark:text-gray-200 text-sm md:text-base">{item}</span>
               </MotionDiv>
             ))}
           </div>
@@ -129,12 +129,12 @@ const Pricing: React.FC = () => {
             href="#contact"
             whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.98 }}
-            className="block w-full py-4 px-6 bg-black text-white font-bold rounded-xl transition-all shadow-lg shadow-black/20 relative z-10 text-center cursor-pointer"
+            className="block w-full py-4 px-6 bg-black dark:bg-white text-white dark:text-black font-bold rounded-xl transition-all shadow-lg shadow-black/20 dark:shadow-white/10 relative z-10 text-center cursor-pointer"
           >
             {t.pricing.cta}
           </MotionA>
 
-          <p className="text-center text-xs text-gray-400 mt-6 relative z-10">
+          <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-6 relative z-10">
             {t.pricing.disclaimer}
           </p>
         </MotionDiv>

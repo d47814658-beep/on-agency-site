@@ -82,7 +82,7 @@ const FAQ: React.FC = () => {
   const activeCategory = faqData.find(c => c.id === activeTab) || faqData[0];
 
   return (
-    <Section id="faq" className="bg-[#F5F5F7]">
+    <Section id="faq" className="bg-[#F5F5F7] dark:bg-[#0a0a0a] transition-colors duration-500">
       <div className="max-w-4xl mx-auto">
         
         {/* Header */}
@@ -91,26 +91,26 @@ const FAQ: React.FC = () => {
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm mb-6"
+             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 shadow-sm mb-6"
           >
-             <HelpCircle className="w-3.5 h-3.5 text-black" />
-             <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600">{t.faq.header.badge}</span>
+             <HelpCircle className="w-3.5 h-3.5 text-black dark:text-white" />
+             <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600 dark:text-gray-300">{t.faq.header.badge}</span>
           </MotionDiv>
           <MotionH2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4"
+            className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4"
           >
-            {t.faq.header.title} <span className="text-gray-400">{t.faq.header.subtitle}</span>
+            {t.faq.header.title} <span className="text-gray-400 dark:text-gray-600">{t.faq.header.subtitle}</span>
           </MotionH2>
           <MotionP 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-gray-500"
+            className="text-lg text-gray-500 dark:text-gray-400"
           >
             {t.faq.header.desc}
           </MotionP>
@@ -124,8 +124,8 @@ const FAQ: React.FC = () => {
               onClick={() => { setActiveTab(category.id); setOpenIndex(null); }}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                 activeTab === category.id 
-                  ? 'bg-black text-white shadow-lg shadow-black/20' 
-                  : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/50'
+                  ? 'bg-black text-white dark:bg-white dark:text-black shadow-lg shadow-black/20 dark:shadow-white/10' 
+                  : 'bg-white dark:bg-neutral-900 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 border border-gray-200/50 dark:border-neutral-800'
               }`}
             >
               {category.label}
@@ -176,15 +176,15 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
             onClick={onClick}
             className={`w-full text-left p-6 rounded-2xl flex items-center justify-between transition-all duration-300 border ${
               isOpen 
-                ? 'bg-white border-black shadow-md' 
-                : 'bg-white border-gray-200 hover:border-gray-300'
+                ? 'bg-white dark:bg-neutral-900 border-black dark:border-white shadow-md' 
+                : 'bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-800 hover:border-gray-300 dark:hover:border-neutral-700'
             }`}
         >
-            <span className={`font-semibold text-lg pr-8 transition-colors ${isOpen ? 'text-black' : 'text-gray-800'}`}>
+            <span className={`font-semibold text-lg pr-8 transition-colors ${isOpen ? 'text-black dark:text-white' : 'text-gray-800 dark:text-gray-200'}`}>
               {question}
             </span>
             <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-              isOpen ? 'bg-black text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
+              isOpen ? 'bg-black text-white dark:bg-white dark:text-black' : 'bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-gray-400 group-hover:bg-gray-200 dark:group-hover:bg-neutral-700'
             }`}>
                 {isOpen ? <Minus size={16} /> : <Plus size={16} />}
             </span>
@@ -198,7 +198,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                 >
-                    <div className="px-6 pb-6 pt-2 text-gray-600 leading-relaxed bg-white mx-1 rounded-b-2xl border-x border-b border-gray-100">
+                    <div className="px-6 pb-6 pt-2 text-gray-600 dark:text-gray-300 leading-relaxed bg-white dark:bg-neutral-900 mx-1 rounded-b-2xl border-x border-b border-gray-100 dark:border-neutral-800">
                         {answer}
                     </div>
                 </MotionDiv>

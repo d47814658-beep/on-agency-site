@@ -23,26 +23,26 @@ const Contact: React.FC = () => {
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm mb-6"
+             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 shadow-sm mb-6"
           >
-             <div className="w-2 h-2 rounded-full bg-black animate-pulse" />
-             <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600">{t.contact.badge}</span>
+             <div className="w-2 h-2 rounded-full bg-black dark:bg-white animate-pulse" />
+             <span className="text-[10px] font-bold tracking-widest uppercase text-gray-600 dark:text-gray-300">{t.contact.badge}</span>
           </MotionDiv>
           <MotionH2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6"
+            className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6"
           >
-            {t.contact.title} <span className="text-gray-400">{t.contact.subtitle}</span>
+            {t.contact.title} <span className="text-gray-400 dark:text-gray-600">{t.contact.subtitle}</span>
           </MotionH2>
           <MotionP 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-500 max-w-2xl mx-auto"
+            className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
           >
             {t.contact.desc}
           </MotionP>
@@ -60,17 +60,17 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg hover:shadow-gray-200/50 transition-all duration-300"
+              className="bg-white dark:bg-neutral-900 p-8 rounded-3xl border border-gray-100 dark:border-neutral-800 shadow-sm hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-black/50 transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform">
-                <Mail className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-black dark:bg-white rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-black/20 dark:shadow-white/10 group-hover:scale-110 transition-transform">
+                <Mail className="w-6 h-6 text-white dark:text-black" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{t.contact.emailCard.title}</h3>
-              <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{t.contact.emailCard.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">
                 {t.contact.emailCard.desc}
               </p>
-              <a href="mailto:hello@on-agency.site" className="group inline-flex items-center text-sm font-semibold text-black transition-opacity">
-                <span className="border-b border-black group-hover:border-transparent transition-colors duration-300">{t.contact.emailCard.cta}</span>
+              <a href="mailto:hello@on-agency.site" className="group inline-flex items-center text-sm font-semibold text-black dark:text-white transition-opacity">
+                <span className="border-b border-black dark:border-white group-hover:border-transparent transition-colors duration-300">{t.contact.emailCard.cta}</span>
               </a>
             </MotionDiv>
 
@@ -81,17 +81,17 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg hover:shadow-gray-200/50 transition-all duration-300"
+              className="bg-white dark:bg-neutral-900 p-8 rounded-3xl border border-gray-100 dark:border-neutral-800 shadow-sm hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-black/50 transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-black/20">
-                <Phone className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-black dark:bg-white rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-black/20 dark:shadow-white/10">
+                <Phone className="w-6 h-6 text-white dark:text-black" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{t.contact.callCard.title}</h3>
-              <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{t.contact.callCard.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">
                 {t.contact.callCard.desc}
               </p>
-              <a href="#" className="group inline-flex items-center text-sm font-semibold text-black transition-opacity">
-                 <span className="border-b border-black group-hover:border-transparent transition-colors duration-300">{t.contact.callCard.cta}</span>
+              <a href="#" className="group inline-flex items-center text-sm font-semibold text-black dark:text-white transition-opacity">
+                 <span className="border-b border-black dark:border-white group-hover:border-transparent transition-colors duration-300">{t.contact.callCard.cta}</span>
               </a>
             </MotionDiv>
 
@@ -103,42 +103,42 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="lg:col-span-7 bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 shadow-lg shadow-gray-200/50"
+            className="lg:col-span-7 bg-white dark:bg-neutral-900 p-8 md:p-10 rounded-[32px] border border-gray-100 dark:border-neutral-800 shadow-lg shadow-gray-200/50 dark:shadow-black/50"
           >
             <form className="space-y-6">
               <div className="space-y-1">
-                <label className="text-sm font-medium text-gray-700 ml-1">{t.contact.form.name}</label>
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.name}</label>
                 <input 
                   type="text" 
                   placeholder={t.contact.form.namePlace}
-                  className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 focus:border-gray-300 transition-all placeholder:text-gray-400 hover:bg-gray-50/80"
+                  className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-gray-700 ml-1">{t.contact.form.email}</label>
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.email}</label>
                 <input 
                   type="email" 
                   placeholder={t.contact.form.emailPlace}
-                  className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 focus:border-gray-300 transition-all placeholder:text-gray-400 hover:bg-gray-50/80"
+                  className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-gray-700 ml-1">{t.contact.form.subject}</label>
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.subject}</label>
                 <input 
                   type="text" 
                   placeholder={t.contact.form.subjectPlace}
-                  className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 focus:border-gray-300 transition-all placeholder:text-gray-400 hover:bg-gray-50/80"
+                  className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-gray-700 ml-1">{t.contact.form.message}</label>
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.message}</label>
                 <textarea 
                   rows={4}
                   placeholder={t.contact.form.messagePlace}
-                  className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 focus:border-gray-300 transition-all placeholder:text-gray-400 resize-none hover:bg-gray-50/80"
+                  className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 resize-none hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white"
                 />
               </div>
 
@@ -151,7 +151,7 @@ const Contact: React.FC = () => {
                   hover: { scale: 1.02 },
                   tap: { scale: 0.98 }
                 }}
-                className="w-full py-4 bg-black text-white font-bold rounded-xl shadow-lg shadow-black/20 hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 mt-4 cursor-pointer"
+                className="w-full py-4 bg-black dark:bg-white text-white dark:text-black font-bold rounded-xl shadow-lg shadow-black/20 dark:shadow-white/10 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 mt-4 cursor-pointer"
               >
                 <span>{t.contact.form.cta}</span>
                 <MotionDiv

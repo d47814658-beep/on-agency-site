@@ -21,10 +21,10 @@ const Benefits: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-gray-200/60 shadow-lg shadow-gray-200/40"
+          className="mb-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-neutral-900 border border-gray-200/60 dark:border-neutral-800 shadow-lg shadow-gray-200/40 dark:shadow-none"
         >
-          <Star className="w-3.5 h-3.5 text-black fill-black" />
-          <span className="text-[11px] font-bold tracking-widest uppercase text-gray-600">
+          <Star className="w-3.5 h-3.5 text-black dark:text-white fill-black dark:fill-white" />
+          <span className="text-[11px] font-bold tracking-widest uppercase text-gray-600 dark:text-gray-300">
             {t.benefits.badge}
           </span>
         </MotionDiv>
@@ -34,7 +34,7 @@ const Benefits: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-gray-900"
+          className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-gray-900 dark:text-white"
         >
           {t.benefits.title}
         </MotionH2>
@@ -43,7 +43,7 @@ const Benefits: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-xl text-gray-500 max-w-2xl mx-auto"
+          className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
         >
           {t.benefits.subtitle}
         </MotionP>
@@ -64,18 +64,18 @@ const Benefits: React.FC = () => {
                   whileInView={{ height: "8rem" }} // h-32
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-                  className="w-full bg-gray-200 rounded-t-lg relative overflow-hidden flex items-end justify-center group-hover/card:bg-gray-300 transition-colors"
+                  className="w-full bg-gray-200 dark:bg-neutral-700 rounded-t-lg relative overflow-hidden flex items-end justify-center group-hover/card:bg-gray-300 dark:group-hover/card:bg-neutral-600 transition-colors"
                 >
                    <MotionDiv 
                      initial={{ opacity: 0 }}
                      whileInView={{ opacity: 1 }}
                      transition={{ delay: 1 }}
-                     className="mb-2 text-[10px] text-gray-500 font-bold rotate-[-90deg]"
+                     className="mb-2 text-[10px] text-gray-500 dark:text-gray-400 font-bold rotate-[-90deg]"
                    >
                      Agency
                    </MotionDiv>
                 </MotionDiv>
-                <span className="text-xs font-medium text-gray-400">5k</span>
+                <span className="text-xs font-medium text-gray-400 dark:text-gray-500">5k</span>
              </div>
              {/* ON Cost */}
              <div className="flex flex-col items-center gap-2 w-16 group/chart">
@@ -84,7 +84,7 @@ const Benefits: React.FC = () => {
                   whileInView={{ height: "40px" }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 100 }}
-                  className="w-full bg-black rounded-t-lg relative overflow-hidden flex items-end justify-center"
+                  className="w-full bg-black dark:bg-white rounded-t-lg relative overflow-hidden flex items-end justify-center"
                 >
                 </MotionDiv>
                 <MotionDiv 
@@ -92,14 +92,14 @@ const Benefits: React.FC = () => {
                    whileInView={{ opacity: 1, scale: 1 }}
                    viewport={{ once: true }}
                    transition={{ delay: 1.2 }}
-                   className="px-2 py-0.5 bg-black text-white text-[10px] font-bold rounded-full"
+                   className="px-2 py-0.5 bg-black dark:bg-white text-white dark:text-black text-[10px] font-bold rounded-full"
                 >
                    97$
                 </MotionDiv>
              </div>
              
              {/* Decor line */}
-             <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-20" viewBox="0 0 200 150">
+             <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-20 dark:opacity-10" viewBox="0 0 200 150">
                 <path d="M20,130 C50,130 50,50 180,50" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
              </svg>
           </div>
@@ -119,17 +119,17 @@ const Benefits: React.FC = () => {
                       initial={{ opacity: 0.3 }}
                       whileInView={{ opacity: [0.3, 1, 0.3] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
-                      className={`w-2 h-2 rounded-full ${i === 2 ? 'bg-black' : 'bg-gray-300'}`}
+                      className={`w-2 h-2 rounded-full ${i === 2 ? 'bg-black dark:bg-white' : 'bg-gray-300 dark:bg-neutral-700'}`}
                     />
                  ))}
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2 mb-4 overflow-hidden">
+              <div className="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2 mb-4 overflow-hidden">
                 <MotionDiv 
                   initial={{ width: "0%" }}
                   whileInView={{ width: "100%" }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.5, ease: "circOut", delay: 0.6 }}
-                  className="h-full bg-black rounded-full"
+                  className="h-full bg-black dark:bg-white rounded-full"
                 />
               </div>
               <MotionDiv 
@@ -137,10 +137,10 @@ const Benefits: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 1.5 }}
-                className="flex items-center gap-2 px-4 py-1.5 bg-white border border-gray-100 rounded-lg shadow-sm"
+                className="flex items-center gap-2 px-4 py-1.5 bg-white dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-lg shadow-sm"
               >
-                <span className="w-2 h-2 rounded-full bg-black animate-pulse"></span>
-                <span className="text-xs font-bold text-gray-800">{t.benefits.card2.badge}</span>
+                <span className="w-2 h-2 rounded-full bg-black dark:bg-white animate-pulse"></span>
+                <span className="text-xs font-bold text-gray-800 dark:text-gray-200">{t.benefits.card2.badge}</span>
               </MotionDiv>
            </div>
         </BenefitCard>
@@ -153,14 +153,14 @@ const Benefits: React.FC = () => {
         >
            <div className="w-full h-full flex items-center justify-center relative">
               {/* Abstract decorative circles */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-30">
+              <div className="absolute inset-0 flex items-center justify-center opacity-30 dark:opacity-10">
                  <MotionDiv 
                    animate={{ rotate: 360 }}
                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                   className="w-32 h-32 border border-gray-300 rounded-full" 
+                   className="w-32 h-32 border border-gray-300 dark:border-neutral-500 rounded-full" 
                    style={{ borderStyle: 'dashed' }} 
                  />
-                 <div className="w-40 h-40 border border-gray-200 rounded-full absolute" />
+                 <div className="w-40 h-40 border border-gray-200 dark:border-neutral-700 rounded-full absolute" />
               </div>
               
               <MotionDiv 
@@ -169,20 +169,20 @@ const Benefits: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 z-10 flex flex-col items-center gap-1"
+                className="bg-white dark:bg-neutral-800 p-4 rounded-2xl shadow-lg border border-gray-100 dark:border-neutral-700 z-10 flex flex-col items-center gap-1"
               >
                  <div className="flex items-end gap-1 mb-1">
-                    <div className="w-1.5 h-3 bg-black rounded-sm"></div>
-                    <div className="w-1.5 h-5 bg-black rounded-sm"></div>
-                    <div className="w-1.5 h-4 bg-black rounded-sm"></div>
+                    <div className="w-1.5 h-3 bg-black dark:bg-white rounded-sm"></div>
+                    <div className="w-1.5 h-5 bg-black dark:bg-white rounded-sm"></div>
+                    <div className="w-1.5 h-4 bg-black dark:bg-white rounded-sm"></div>
                  </div>
-                 <span className="text-[10px] font-bold text-gray-800 uppercase tracking-wider">{t.benefits.card3.badge}</span>
-                 <div className="w-full h-0.5 bg-gray-100 mt-1">
+                 <span className="text-[10px] font-bold text-gray-800 dark:text-gray-200 uppercase tracking-wider">{t.benefits.card3.badge}</span>
+                 <div className="w-full h-0.5 bg-gray-100 dark:bg-neutral-700 mt-1">
                     <MotionDiv 
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
                       transition={{ delay: 1, duration: 0.5 }}
-                      className="w-full h-full bg-black"
+                      className="w-full h-full bg-black dark:bg-white"
                     />
                  </div>
               </MotionDiv>
@@ -211,14 +211,14 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ title, description, children,
     }}
     viewport={{ once: true }}
     transition={{ delay, duration: 0.5 }}
-    className="group/card bg-white rounded-3xl p-2 shadow-sm border border-gray-100 hover:shadow-xl hover:border-gray-200 transition-all duration-300"
+    className="group/card bg-white dark:bg-neutral-900 rounded-3xl p-2 shadow-sm border border-gray-100 dark:border-neutral-800 hover:shadow-xl hover:border-gray-200 dark:hover:border-neutral-700 transition-all duration-300"
   >
-    <div className="h-56 bg-[#F9FAFB] rounded-2xl mb-6 overflow-hidden relative border border-gray-50">
+    <div className="h-56 bg-[#F9FAFB] dark:bg-neutral-950 rounded-2xl mb-6 overflow-hidden relative border border-gray-50 dark:border-neutral-800">
       {children}
     </div>
     <div className="px-4 pb-6">
-      <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover/card:text-black transition-colors">{title}</h3>
-      <p className="text-gray-500 leading-relaxed text-sm">
+      <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover/card:text-black dark:group-hover/card:text-white transition-colors">{title}</h3>
+      <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
         {description}
       </p>
     </div>
