@@ -20,7 +20,7 @@ const translations = {
     hero: {
       badge: "Agence Web Premium",
       title1: "Sites Web Premium",
-      title2: "Sans Upfront",
+      title2: "Sans Frais Initiaux",
       description: "Activez votre présence digitale sans barrière financière.",
       price: "97$/mois.",
       subDesc: "Hébergement, maintenance et sécurité inclus.",
@@ -43,7 +43,7 @@ const translations = {
       title: "Pourquoi nous choisir ?",
       subtitle: "Collaborez avec une agence spécialisée qui propose des solutions intelligentes et accessibles.",
       card1: {
-        title: "Zéro Upfront",
+        title: "Sans Frais Initiaux",
         desc: "Transformez un investissement de 5000€ en un abonnement accessible de 97$/mois."
       },
       card2: {
@@ -125,7 +125,7 @@ const translations = {
       sectionBadge: "TARIFICATION",
       monthly: "Mensuel",
       annual: "Annuel",
-      badge: "0$ UPFRONT",
+      badge: "Sans Frais Initiaux",
       offer: "Offre Unique",
       perMonth: "/ mois",
       perYear: "/ an",
@@ -203,7 +203,7 @@ const translations = {
         q4: "À qui s’adresse votre modèle ?",
         a4: "Aux entreprises qui veulent un site premium sans immobiliser une grosse somme au départ, et surtout qui veulent un site vivant : entretenu, sécurisé, et optimisé au fil des mois.",
         
-        q5: "Pourquoi vous ne facturez pas d’upfront élevé ?",
+        q5: "Pourquoi vous ne facturez pas de frais initiaux élevés ?",
         a5: "Parce qu’un site n’est pas juste un “projet”, c’est un système qui doit fonctionner dans le temps. L’abonnement aligne nos intérêts : vous démarrez sans barrière financière, et nous sommes responsables de la qualité sur la durée.",
         q6: "Est-ce que je paie plus cher sur le long terme ?",
         a6: "Ça dépend de votre horizon. Si vous payez une agence classique, vous payez souvent : création + maintenance + corrections + évolutions + urgences. Chez ON Agency, tout est intégré et prévu. L’objectif n’est pas de “faire moins cher”, mais de rendre le premium accessible et stable.",
