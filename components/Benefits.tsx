@@ -75,7 +75,7 @@ const Benefits: React.FC = () => {
                      Agency
                    </MotionDiv>
                 </MotionDiv>
-                <span className="text-xs font-medium text-gray-400 dark:text-gray-500">5k</span>
+                <span className="text-xs font-medium text-gray-400 dark:text-gray-500">5k€</span>
              </div>
              {/* ON Cost */}
              <div className="flex flex-col items-center gap-2 w-16 group/chart">
@@ -94,7 +94,7 @@ const Benefits: React.FC = () => {
                    transition={{ delay: 1.2 }}
                    className="px-2 py-0.5 bg-black dark:bg-white text-white dark:text-black text-[10px] font-bold rounded-full"
                 >
-                   97$
+                   97€
                 </MotionDiv>
              </div>
              

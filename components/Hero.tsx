@@ -80,12 +80,12 @@ const Hero: React.FC = () => {
             <div className="flex flex-col items-center md:items-start" key={language}>
               <TextEffectPerChar 
                 delay={0.5}
-                className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-black dark:text-white text-center md:text-left leading-[1.1]"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-black dark:text-white text-center md:text-left leading-[1.1]"
                 children={t.hero.title1}
               />
               <TextEffectPerChar 
                 delay={1.2}
-                className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-black dark:text-white text-center md:text-left leading-[1.1]"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-black dark:text-white text-center md:text-left leading-[1.1]"
                 children={t.hero.title2}
               />
             </div>

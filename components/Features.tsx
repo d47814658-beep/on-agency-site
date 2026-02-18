@@ -16,10 +16,10 @@ const Features: React.FC = () => {
 
   return (
     <section className="bg-black py-20 md:py-32 overflow-hidden border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         
         {/* Carousel Section (Left) */}
-        <div className="w-full md:w-1/2 relative">
+        <div className="w-full lg:w-1/2 relative">
            {/* Fades */}
            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
@@ -40,7 +40,7 @@ const Features: React.FC = () => {
         </div>
 
         {/* Text Section (Right) */}
-        <div className="w-full md:w-1/2 text-left">
+        <div className="w-full lg:w-1/2 text-left">
            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm mb-6">
               <Layers className="w-3.5 h-3.5 text-white" />
               <span className="text-[10px] font-bold tracking-widest uppercase text-white/90">{t.features.badge}</span>

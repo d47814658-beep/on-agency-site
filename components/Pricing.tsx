@@ -95,7 +95,7 @@ const Pricing: React.FC = () => {
                   transition={{ duration: 0.3, type: "spring" }}
                   className="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white"
                 >
-                  {isAnnual ? "997$" : "97$"}
+                  {isAnnual ? "997€" : "97€"}
                 </MotionSpan>
               </AnimatePresence>
               <span className="text-xl text-gray-500 dark:text-gray-400">

@@ -19,23 +19,23 @@ const translations = {
     },
     hero: {
       badge: "Agence Web Premium",
-      title1: "Sites Web Premium",
-      title2: "Sans Frais Initiaux",
-      description: "Activez votre présence digitale sans barrière financière.",
-      price: "97$/mois.",
+      title1: "Ne subissez plus",
+      title2: "le marché. Dominez-le.",
+      description: "Votre site ne doit pas juste être beau. Il doit capturer l'attention, écraser la concurrence et vendre pour vous 24h/7j. Le tout, sans sortir 5000€ aujourd'hui.",
+      price: "97€/mois.",
       subDesc: "Hébergement, maintenance et sécurité inclus.",
-      cta1: "Obtenir le modèle",
+      cta1: "Lancer ma croissance ⚡",
       cta2: "Découvrez nos services"
     },
     founder: {
       badge: "VISION",
-      text1: "Notre mission est de permettre à chaque entreprise d'avoir un",
-      bold1: "site web professionnel",
-      text2: "et optimisé sans que le",
-      bold2: "coût initial",
-      text3: "ne soit un frein. Nous croyons que l'investissement doit aller dans le",
-      bold3: "cœur de métier",
-      text4: ", pas dans les barrières techniques.",
+      text1: "La plupart des sites sont des",
+      bold1: "cartes de visite mortes.",
+      text2: "Nous construisons des",
+      bold2: "Actifs Numériques :",
+      text3: "des machines optimisées psychologiquement pour",
+      bold3: "transformer un inconnu",
+      text4: "en client fidèle.",
       role: "Vision & Stratégie"
     },
     benefits: {
@@ -43,17 +43,17 @@ const translations = {
       title: "Pourquoi nous choisir ?",
       subtitle: "Collaborez avec une agence spécialisée qui propose des solutions intelligentes et accessibles.",
       card1: {
-        title: "Sans Frais Initiaux",
-        desc: "Transformez un investissement de 5000€ en un abonnement accessible de 97$/mois."
+        title: "Gardez votre trésorerie pour la guerre",
+        desc: "Investissez votre cash dans vos équipes ou votre pub. Nous finançons votre arme technologique."
       },
       card2: {
-        title: "Livraison Rapide",
-        desc: "Votre site professionnel en ligne en quelques jours grâce à notre processus optimisé.",
+        title: "Capturez l'attention en 0.5s",
+        desc: "Dans une économie de l'attention, le médiocre est invisible. Nous créons des designs qui scotchnt vos visiteurs.",
         badge: "En ligne: 72h"
       },
       card3: {
-        title: "Qualité Premium",
-        desc: "Site sur-mesure en code pur, optimisé SEO et ultra-rapide.",
+        title: "Une Ferrari face à des Twingos",
+        desc: "Pendant que les sites WordPress de vos concurrents rament, le vôtre charge instantanément. Google adore, vos clients achètent.",
         badge: "Performance"
       }
     },
@@ -134,14 +134,14 @@ const translations = {
       cta: "Commencer maintenant",
       disclaimer: "Engagement 12-16 mois • Propriété transférée ensuite.",
       features: [
-        "Site Web Premium Sur-Mesure",
+        "Machine à Convertir Sur-Mesure",
         "Code Pur (React/Next.js) - Pas de WP",
         "Hébergement Haute Performance",
         "Certificat SSL & Sécurité",
         "Maintenance Technique Incluse",
         "Modifications de Contenu Illimitées*",
         "Support Client Prioritaire (48h)",
-        "Optimisation SEO Technique"
+        "Architecture Domination SEO"
       ]
     },
     contact: {
@@ -226,7 +226,7 @@ const translations = {
         a14: "C’est prévu. Un site doit évoluer : nouvelles offres, nouvelles pages, amélioration des performances. Votre abonnement sert justement à ça : éviter que le site devienne obsolète.",
 
         q15: "Comment votre site va m’aider à générer plus de clients ?",
-        a15: "By creating a clear path: immediate credibility, understandable offer, proof (reviews/cases), and effective calls to action. A good site isn't just 'beautiful', it makes the decision simpler.",
+        a15: "En créant un parcours clair : crédibilité immédiate, offre compréhensible, preuves (avis/cas) et appels à l'action efficaces. Un bon site n'est pas juste \"beau\", il rend la décision plus simple.",
         q16: "Optimisez-vous le site dans le temps ?",
         a16: "Oui. On suit ce qui doit s’améliorer (structure, clarté, vitesse, pages clés, conversion). On ne vend pas un site “parfait” le jour 1 : on construit un actif qui progresse.",
         q17: "En combien de temps puis-je voir des résultats ?",
@@ -252,9 +252,9 @@ const translations = {
     hero: {
       badge: "Premium Web Agency",
       title1: "Premium Websites",
-      title2: "$0 Upfront",
+      title2: "0€ Upfront",
       description: "Activate your digital presence without financial barriers.",
-      price: "$97/mo.",
+      price: "97€/mo.",
       subDesc: "Hosting, maintenance, and security included.",
       cta1: "Get the model",
       cta2: "Discover services"
@@ -276,7 +276,7 @@ const translations = {
       subtitle: "Partner with a specialized agency offering intelligent and accessible solutions.",
       card1: {
         title: "Zero Upfront",
-        desc: "Transform a $5,000 investment into an accessible $97/month subscription."
+        desc: "Transform a 5,000€ investment into an accessible 97€/month subscription."
       },
       card2: {
         title: "Fast Delivery",
@@ -357,7 +357,7 @@ const translations = {
       sectionBadge: "PRICING",
       monthly: "Monthly",
       annual: "Annual",
-      badge: "0$ UPFRONT",
+      badge: "0€ UPFRONT",
       offer: "Unique Offer",
       perMonth: "/ month",
       perYear: "/ year",
@@ -451,7 +451,7 @@ const translations = {
         q11: "Who owns the site?",
         a11: "You own your content and brand (provided texts, logos, media, data). For the technical part and architecture operated under subscription, everything is clarified in the contract: the goal is for you to be protected and for operations to remain stable.",
         q12: "Where is the site hosted?",
-        a12: "On reliable infrastructure adapted to your needs (performance, availability, security). The choice is made for stability, not to 'save' $3 a month.",
+        a12: "On reliable infrastructure adapted to your needs (performance, availability, security). The choice is made for stability, not to 'save' 3€ a month.",
         q13: "Is the site secure?",
         a13: "Yes, security is part of the model: updates, monitoring, best practices, backups, and incident prevention according to your plan.",
         q14: "What if I want to evolve the site?",
