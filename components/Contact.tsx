@@ -69,7 +69,7 @@ const Contact: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">
                 {t.contact.emailCard.desc}
               </p>
-              <a href="mailto:hello@on-agency.site" className="group inline-flex items-center text-sm font-semibold text-black dark:text-white transition-opacity">
+              <a href="mailto:onagency215@gmail.com" className="group inline-flex items-center text-sm font-semibold text-black dark:text-white transition-opacity">
                 <span className="border-b border-black dark:border-white group-hover:border-transparent transition-colors duration-300">{t.contact.emailCard.cta}</span>
               </a>
             </MotionDiv>
