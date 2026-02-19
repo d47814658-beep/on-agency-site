@@ -22,7 +22,7 @@ const translations = {
       title1: "Ne subissez plus",
       title2: "le marché. Dominez-le.",
       description: "Votre site ne doit pas juste être beau. Il doit capturer l'attention, écraser la concurrence et vendre pour vous 24h/7j. Le tout, sans sortir 5000€ aujourd'hui.",
-      price: "97€/mois.",
+      price: "105€/mois.",
       subDesc: "Hébergement, maintenance et sécurité inclus.",
       cta1: "Lancer ma croissance ⚡",
       cta2: "Découvrez nos services"
@@ -254,7 +254,7 @@ const translations = {
       title1: "Premium Websites",
       title2: "0€ Upfront",
       description: "Activate your digital presence without financial barriers.",
-      price: "97€/mo.",
+      price: "105€/mo.",
       subDesc: "Hosting, maintenance, and security included.",
       cta1: "Get the model",
       cta2: "Discover services"
@@ -276,7 +276,7 @@ const translations = {
       subtitle: "Partner with a specialized agency offering intelligent and accessible solutions.",
       card1: {
         title: "Zero Upfront",
-        desc: "Transform a 5,000€ investment into an accessible 97€/month subscription."
+        desc: "Transform a 5,000€ investment into an accessible 105€/month subscription."
       },
       card2: {
         title: "Fast Delivery",

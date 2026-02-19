@@ -73,7 +73,7 @@ const Pricing: React.FC = () => {
         <MotionDiv 
           // Fix: Cast style to any to allow motion values in scale/opacity
           style={{ scale, opacity, willChange: 'transform, opacity' } as any}
-          className="w-full relative bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl rounded-[32px] p-8 md:p-12 shadow-2xl border border-white/20 dark:border-white/10 overflow-hidden"
+          className="w-full relative bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl rounded-[32px] p-8 md:p-12 shadow-2xl border border-white/20 dark:border-white/10 overflow-hidden hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.2)] hover:border-gray-300 dark:hover:border-neutral-500 transition-all duration-500"
         >
           {/* Animated Gradient Border (Grayscale) */}
           <div className="absolute inset-0 p-[1px] rounded-[32px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-neutral-800 dark:via-neutral-700 dark:to-neutral-800 bg-[length:200%_100%] animate-gradient-shift pointer-events-none -z-10" />
@@ -95,7 +95,7 @@ const Pricing: React.FC = () => {
                   transition={{ duration: 0.3, type: "spring" }}
                   className="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white"
                 >
-                  {isAnnual ? "997€" : "97€"}
+                  {isAnnual ? "1050€" : "105€"}
                 </MotionSpan>
               </AnimatePresence>
               <span className="text-xl text-gray-500 dark:text-gray-400">

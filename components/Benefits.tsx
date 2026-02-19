@@ -94,7 +94,7 @@ const Benefits: React.FC = () => {
                    transition={{ delay: 1.2 }}
                    className="px-2 py-0.5 bg-black dark:bg-white text-white dark:text-black text-[10px] font-bold rounded-full"
                 >
-                   97€
+                   105€
                 </MotionDiv>
              </div>
              
