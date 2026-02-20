@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
           className="inline-flex cursor-pointer select-none items-center justify-center gap-x-1 rounded-full bg-white/50 dark:bg-white/10 border border-white/40 dark:border-white/10 backdrop-blur-3xl px-4 py-2 hover:px-5 transition-all duration-300 group mb-8"
         >
           <span className="text-[11px] font-medium tracking-widest uppercase text-gray-800 dark:text-gray-200">
-            {t.hero.badge}
+            {t.hero.badge} <span className="sr-only">- ON AGENCY - Agence Web Premium</span>
           </span>
           <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-0.5 text-gray-800 dark:text-gray-200">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="opacity-70">
