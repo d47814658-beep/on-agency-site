@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
   });
   
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [contactMethod, setContactMethod] = useState<'email' | 'call'>('email');
+  const [contactMethod, setContactMethod] = useState<'email' | 'call'>('call');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
