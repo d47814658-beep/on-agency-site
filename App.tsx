@@ -17,7 +17,6 @@ import { ScrollProgress } from './components/ui/ScrollProgress';
 import { ScrollToTop } from './components/ui/ScrollToTop';
 import { LanguageProvider, useLanguage } from './components/LanguageContext';
 import { ThemeProvider, useTheme } from './components/ThemeContext';
-import ChatWidget from './components/ChatWidget';
 
 const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -138,7 +137,6 @@ const AppContent: React.FC = () => {
     <div className="min-h-screen font-sans bg-[#F5F5F7] dark:bg-[#0a0a0a] selection:bg-gray-200 selection:text-black dark:selection:bg-gray-800 dark:selection:text-white overflow-x-hidden transition-colors duration-500">
       <ScrollProgress />
       <ScrollToTop />
-      <ChatWidget />
       
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4 md:py-6 bg-transparent">
         <div className="max-w-7xl mx-auto flex justify-between items-center backdrop-blur-md bg-white/70 dark:bg-black/70 border border-white/40 dark:border-white/10 rounded-2xl px-4 md:px-6 py-3 shadow-sm relative transition-all hover:shadow-md duration-500">
