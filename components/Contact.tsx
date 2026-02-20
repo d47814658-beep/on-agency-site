@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, Send, Loader2, CheckCircle } from 'lucide-react';
 import { Section } from './ui/Section';
 import { useLanguage } from './LanguageContext';
-import { Calendar20 } from './ui/calendar-with-time-presets';
 
 // Fix: Cast motion components to any
 const MotionDiv = motion.div as any;
@@ -23,7 +22,22 @@ const Contact: React.FC = () => {
   });
   
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [contactMethod, setContactMethod] = useState<'email' | 'call'>('call');
+  const [contactMethod, setContactMethod] = useState<'email' | 'call'>('email');
+
+  useEffect(() => {
+    if (contactMethod === 'call') {
+      const script = document.createElement('script');
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+      
+      return () => {
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      }
+    }
+  }, [contactMethod]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -174,11 +188,13 @@ const Contact: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="h-full w-full"
+                  className="h-full w-full min-h-[600px]"
                 >
-                  <div className="h-full w-full flex items-center justify-center p-4 md:p-8">
-                     <Calendar20 />
-                  </div>
+                  <div 
+                    className="calendly-inline-widget w-full h-full" 
+                    data-url="https://calendly.com/onagency215/30min?hide_gdpr_banner=1&background_color=ffffff&text_color=000000&primary_color=000000" 
+                    style={{ minWidth: '320px', height: '100%' }} 
+                  />
                 </MotionDiv>
               ) : (
                 <MotionDiv
