@@ -24,7 +24,7 @@ async function startServer() {
       console.log("Messages:", JSON.stringify(messages));
 
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
       try {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -36,7 +36,7 @@ async function startServer() {
             "X-Title": "ON AGENCY Chatbot",
           },
           body: JSON.stringify({
-            "model": "meta-llama/llama-3-8b-instruct:free", // Switching to a potentially more stable free model for testing
+            "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
             "messages": [
               {
                 "role": "system",

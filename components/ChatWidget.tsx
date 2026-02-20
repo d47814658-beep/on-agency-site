@@ -6,7 +6,7 @@ import { useLanguage } from './LanguageContext';
 const ChatWidget: React.FC = () => {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([
+  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string; feedback?: 'up' | 'down' }[]>([
     { role: 'assistant', content: "Bonjour ! Je suis l'assistant virtuel de ON AGENCY. Comment puis-je vous aider aujourd'hui ?" }
   ]);
   const [input, setInput] = useState('');
@@ -21,6 +21,14 @@ const ChatWidget: React.FC = () => {
     scrollToBottom();
   }, [messages, isOpen]);
 
+  const handleFeedback = (index: number, type: 'up' | 'down') => {
+    setMessages(prev => prev.map((msg, i) => 
+      i === index ? { ...msg, feedback: type } : msg
+    ));
+    // Here you would typically send this feedback to your backend
+    console.log(`Feedback ${type} for message ${index}`);
+  };
+
   const handleSend = async () => {
     if (!input.trim()) return;
 
@@ -33,13 +41,12 @@ const ChatWidget: React.FC = () => {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: [...messages, userMessage] }),
+        body: JSON.stringify({ messages: [...messages, userMessage].map(({ role, content }) => ({ role, content })) }),
       });
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('API Error:', response.status, errorText);
-        throw new Error(`Server error: ${response.status} ${errorText}`);
+        throw new Error(errorText || response.statusText);
       }
 
       const data = await response.json();
@@ -47,7 +54,7 @@ const ChatWidget: React.FC = () => {
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
       console.error('Chat error:', error);
-      setMessages(prev => [...prev, { role: 'assistant', content: "Désolé, une erreur est survenue. Veuillez réessayer plus tard." }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: "Désolé, je rencontre des difficultés techniques pour le moment. Veuillez réessayer dans quelques instants." }]);
     } finally {
       setIsLoading(false);
     }
@@ -106,6 +113,24 @@ const ChatWidget: React.FC = () => {
                     }`}
                   >
                     {msg.content}
+                    {msg.role === 'assistant' && idx !== 0 && (
+                      <div className="flex gap-2 mt-2 pt-2 border-t border-gray-100 dark:border-neutral-700">
+                        <button 
+                          onClick={() => handleFeedback(idx, 'up')}
+                          className={`p-1 rounded hover:bg-gray-100 dark:hover:bg-neutral-700 transition-colors ${msg.feedback === 'up' ? 'text-green-500' : 'text-gray-400'}`}
+                          aria-label="Helpful"
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        </button>
+                        <button 
+                          onClick={() => handleFeedback(idx, 'down')}
+                          className={`p-1 rounded hover:bg-gray-100 dark:hover:bg-neutral-700 transition-colors ${msg.feedback === 'down' ? 'text-red-500' : 'text-gray-400'}`}
+                          aria-label="Not helpful"
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
