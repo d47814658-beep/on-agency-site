@@ -35,7 +35,7 @@ const translations = {
       bold2: "Actifs Numériques :",
       text3: "des machines optimisées psychologiquement pour",
       bold3: "transformer un inconnu",
-      text4: "en client fidèle.",
+      text4: " en client fidèle.",
       role: "Vision & Stratégie"
     },
     benefits: {
@@ -44,7 +44,7 @@ const translations = {
       subtitle: "Collaborez avec une agence spécialisée qui propose des solutions intelligentes et accessibles.",
       card1: {
         title: "Gardez votre trésorerie pour la guerre",
-        desc: "Investissez votre cash dans vos équipes ou votre pub. Nous finançons votre arme technologique."
+        desc: "Investissez votre argent dans vos équipes ou votre pub. Nous finançons votre arme technologique."
       },
       card2: {
         title: "Capturez l'attention en 0.5s",
