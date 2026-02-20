@@ -91,6 +91,7 @@ const FAQ: React.FC = () => {
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
+             transition={{ duration: 0.8, ease: "easeOut" }}
              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 shadow-sm mb-6"
           >
              <HelpCircle className="w-3.5 h-3.5 text-black dark:text-white" />
@@ -100,7 +101,7 @@ const FAQ: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
             className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4"
           >
             {t.faq.header.title} <span className="text-gray-400 dark:text-gray-600">{t.faq.header.subtitle}</span>
@@ -109,7 +110,7 @@ const FAQ: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
             className="text-lg text-gray-500 dark:text-gray-400"
           >
             {t.faq.header.desc}

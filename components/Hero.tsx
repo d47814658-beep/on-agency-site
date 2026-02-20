@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       y: 0, 
       filter: 'blur(0px)',
       transition: {
-        duration: 0.8,
+        duration: 1.2,
         ease: [0.16, 1, 0.3, 1] // Ease-out-expo
       }
     }
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.2,
         delayChildren: 0.2
       }
     }
@@ -77,13 +77,13 @@ const Hero: React.FC = () => {
         <div className="mb-8">
            <MotionH1 
              variants={blurUpVariants}
-             className="text-[3rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[-0.04em] text-black dark:text-white text-center text-balance"
+             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[-0.04em] text-black dark:text-white text-center text-balance"
            >
              {t.hero.title1}
            </MotionH1>
            <MotionH1 
              variants={blurUpVariants}
-             className="text-[3rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[-0.04em] text-black dark:text-white text-center text-balance"
+             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[-0.04em] text-black dark:text-white text-center text-balance"
            >
              {t.hero.title2}
            </MotionH1>

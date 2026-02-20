@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, Send, Loader2, CheckCircle } from 'lucide-react';
 import { Section } from './ui/Section';
 import { useLanguage } from './LanguageContext';
+import { Calendar20 } from './ui/calendar-with-time-presets';
 
 // Fix: Cast motion components to any
 const MotionDiv = motion.div as any;
@@ -22,6 +23,7 @@ const Contact: React.FC = () => {
   });
   
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [contactMethod, setContactMethod] = useState<'email' | 'call'>('email');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -79,6 +81,7 @@ const Contact: React.FC = () => {
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
+             transition={{ duration: 0.8, ease: "easeOut" }}
              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 shadow-sm mb-6"
           >
              <div className="w-2 h-2 rounded-full bg-black dark:bg-white animate-pulse" />
@@ -88,7 +91,7 @@ const Contact: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
             className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6"
           >
             {t.contact.title} <span className="text-gray-400 dark:text-gray-600">{t.contact.subtitle}</span>
@@ -97,7 +100,7 @@ const Contact: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
             className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
           >
             {t.contact.desc}
@@ -114,9 +117,10 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-neutral-900 p-8 rounded-3xl border border-gray-100 dark:border-neutral-800 shadow-sm hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-black/50 transition-all duration-300"
+              onClick={() => setContactMethod('email')}
+              className={`cursor-pointer bg-white dark:bg-neutral-900 p-6 md:p-8 rounded-3xl border shadow-sm hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-black/50 transition-all duration-300 ${contactMethod === 'email' ? 'border-black dark:border-white ring-1 ring-black dark:ring-white' : 'border-gray-100 dark:border-neutral-800'}`}
             >
               <div className="w-12 h-12 bg-black dark:bg-white rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-black/20 dark:shadow-white/10 group-hover:scale-110 transition-transform">
                 <Mail className="w-6 h-6 text-white dark:text-black" />
@@ -125,9 +129,9 @@ const Contact: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">
                 {t.contact.emailCard.desc}
               </p>
-              <a href="mailto:onagency215@gmail.com" className="group inline-flex items-center text-sm font-semibold text-black dark:text-white transition-opacity">
-                <span className="border-b border-black dark:border-white group-hover:border-transparent transition-colors duration-300">{t.contact.emailCard.cta}</span>
-              </a>
+              <div className="group inline-flex items-center text-sm font-semibold text-black dark:text-white transition-opacity">
+                <span className={`border-b ${contactMethod === 'email' ? 'border-black dark:border-white' : 'border-transparent'} group-hover:border-black dark:group-hover:border-white transition-colors duration-300`}>{t.contact.emailCard.cta}</span>
+              </div>
             </MotionDiv>
 
             {/* Call Card */}
@@ -135,9 +139,10 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.45, duration: 0.7 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-neutral-900 p-8 rounded-3xl border border-gray-100 dark:border-neutral-800 shadow-sm hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-black/50 transition-all duration-300"
+              onClick={() => setContactMethod('call')}
+              className={`cursor-pointer bg-white dark:bg-neutral-900 p-6 md:p-8 rounded-3xl border shadow-sm hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-black/50 transition-all duration-300 ${contactMethod === 'call' ? 'border-black dark:border-white ring-1 ring-black dark:ring-white' : 'border-gray-100 dark:border-neutral-800'}`}
             >
               <div className="w-12 h-12 bg-black dark:bg-white rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-black/20 dark:shadow-white/10">
                 <Phone className="w-6 h-6 text-white dark:text-black" />
@@ -146,120 +151,138 @@ const Contact: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">
                 {t.contact.callCard.desc}
               </p>
-              <a href="https://calendly.com/onagency215/30min" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center text-sm font-semibold text-black dark:text-white transition-opacity">
-                 <span className="border-b border-black dark:border-white group-hover:border-transparent transition-colors duration-300">{t.contact.callCard.cta}</span>
-              </a>
+              <div className="group inline-flex items-center text-sm font-semibold text-black dark:text-white transition-opacity">
+                 <span className={`border-b ${contactMethod === 'call' ? 'border-black dark:border-white' : 'border-transparent'} group-hover:border-black dark:group-hover:border-white transition-colors duration-300`}>{t.contact.callCard.cta}</span>
+              </div>
             </MotionDiv>
 
           </div>
 
-          {/* Right Column - Form */}
+          {/* Right Column - Form or Calendar */}
           <MotionDiv 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="lg:col-span-7 bg-white dark:bg-neutral-900 p-8 md:p-10 rounded-[32px] border border-gray-100 dark:border-neutral-800 shadow-lg shadow-gray-200/50 dark:shadow-black/50 h-full relative overflow-hidden"
+            transition={{ delay: 0.6, duration: 0.7 }}
+            className={`lg:col-span-7 bg-white dark:bg-neutral-900 rounded-[32px] border border-gray-100 dark:border-neutral-800 shadow-lg shadow-gray-200/50 dark:shadow-black/50 h-full relative overflow-hidden ${contactMethod === 'call' ? 'p-0' : 'p-6 md:p-10'}`}
           >
             <AnimatePresence mode="wait">
-              {status === 'success' ? (
-                <MotionDiv 
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  className="h-full flex flex-col items-center justify-center text-center py-20"
+              {contactMethod === 'call' ? (
+                <MotionDiv
+                  key="calendar"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="h-full w-full"
                 >
-                   <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6">
-                      <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
-                   </div>
-                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Message envoyé !</h3>
-                   <p className="text-gray-500 dark:text-gray-400 max-w-xs">Nous avons bien reçu votre demande et reviendrons vers vous sous 24h.</p>
+                  <div className="h-full w-full flex items-center justify-center p-4 md:p-8">
+                     <Calendar20 />
+                  </div>
                 </MotionDiv>
               ) : (
-                <form key="form" onSubmit={handleSubmit} className="space-y-6 h-full flex flex-col justify-between">
-                  <div className="space-y-6">
-                    <div className="space-y-1">
-                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.name}</label>
-                      <input 
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        type="text" 
-                        placeholder={t.contact.form.namePlace}
-                        disabled={status === 'submitting'}
-                        className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                      />
+                <MotionDiv
+                  key="form-container"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.3 }}
+                  className="h-full"
+                >
+                  {status === 'success' ? (
+                    <div className="h-full flex flex-col items-center justify-center text-center py-20">
+                       <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6">
+                          <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
+                       </div>
+                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Message envoyé !</h3>
+                       <p className="text-gray-500 dark:text-gray-400 max-w-xs">Nous avons bien reçu votre demande et reviendrons vers vous sous 24h.</p>
                     </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6 h-full flex flex-col justify-between">
+                      <div className="space-y-6">
+                        <div className="space-y-1">
+                          <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.name}</label>
+                          <input 
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            type="text" 
+                            placeholder={t.contact.form.namePlace}
+                            disabled={status === 'submitting'}
+                            className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                          />
+                        </div>
 
-                    <div className="space-y-1">
-                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.email}</label>
-                      <input 
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        type="email" 
-                        placeholder={t.contact.form.emailPlace}
+                        <div className="space-y-1">
+                          <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.email}</label>
+                          <input 
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            type="email" 
+                            placeholder={t.contact.form.emailPlace}
+                            disabled={status === 'submitting'}
+                            className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                          />
+                        </div>
+
+                        <div className="space-y-1">
+                          <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.subject}</label>
+                          <input 
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            required
+                            type="text" 
+                            placeholder={t.contact.form.subjectPlace}
+                            disabled={status === 'submitting'}
+                            className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                          />
+                        </div>
+
+                        <div className="space-y-1">
+                          <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.message}</label>
+                          <textarea 
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            required
+                            rows={4}
+                            placeholder={t.contact.form.messagePlace}
+                            disabled={status === 'submitting'}
+                            className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 resize-none hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                          />
+                        </div>
+                      </div>
+
+                      <MotionButton
+                        type="submit"
                         disabled={status === 'submitting'}
-                        className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                      />
-                    </div>
-
-                    <div className="space-y-1">
-                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.subject}</label>
-                      <input 
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                        type="text" 
-                        placeholder={t.contact.form.subjectPlace}
-                        disabled={status === 'submitting'}
-                        className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                      />
-                    </div>
-
-                    <div className="space-y-1">
-                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300 ml-1">{t.contact.form.message}</label>
-                      <textarea 
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        rows={4}
-                        placeholder={t.contact.form.messagePlace}
-                        disabled={status === 'submitting'}
-                        className="w-full px-5 py-4 bg-gray-50 dark:bg-neutral-800 border border-gray-100 dark:border-neutral-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 dark:focus:ring-white/10 focus:border-gray-300 dark:focus:border-neutral-600 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 resize-none hover:bg-gray-50/80 dark:hover:bg-neutral-800/80 text-black dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                      />
-                    </div>
-                  </div>
-
-                  <MotionButton
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`w-full py-4 bg-black dark:bg-white text-white dark:text-black font-bold rounded-xl shadow-lg shadow-black/20 dark:shadow-white/10 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 mt-4 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
-                  >
-                    {status === 'submitting' ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Envoi en cours...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>{t.contact.form.cta}</span>
-                        <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </MotionButton>
-                  
-                  {status === 'error' && (
-                     <p className="text-red-500 text-center text-sm mt-2">Une erreur est survenue. Réessayez.</p>
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className={`w-full py-4 bg-black dark:bg-white text-white dark:text-black font-bold rounded-xl shadow-lg shadow-black/20 dark:shadow-white/10 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 mt-4 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
+                      >
+                        {status === 'submitting' ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            <span>Envoi en cours...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>{t.contact.form.cta}</span>
+                            <Send className="w-4 h-4" />
+                          </>
+                        )}
+                      </MotionButton>
+                      
+                      {status === 'error' && (
+                         <p className="text-red-500 text-center text-sm mt-2">Une erreur est survenue. Réessayez.</p>
+                      )}
+                    </form>
                   )}
-                </form>
+                </MotionDiv>
               )}
             </AnimatePresence>
           </MotionDiv>

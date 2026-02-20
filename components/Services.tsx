@@ -124,8 +124,12 @@ const Services: React.FC = () => {
           
           {/* Card 1: Strategy (Large Left) */}
           <MotionDiv 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
             whileHover={{ y: -5 }}
-            className="md:col-span-1 lg:col-span-5 bg-white dark:bg-neutral-900 rounded-[2rem] p-8 md:p-10 shadow-sm border border-gray-100 dark:border-neutral-800 flex flex-col justify-between overflow-hidden min-h-[400px]"
+            className="md:col-span-1 lg:col-span-5 bg-white dark:bg-neutral-900 rounded-[2rem] p-6 md:p-10 shadow-sm border border-gray-100 dark:border-neutral-800 flex flex-col justify-between overflow-hidden min-h-[320px] md:min-h-[400px]"
           >
              <div className="mb-8 flex-1">
                 <StrategyVisual />
@@ -143,8 +147,12 @@ const Services: React.FC = () => {
 
           {/* Card 2: Content/AI (Large Right) */}
           <MotionDiv 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
             whileHover={{ y: -5 }}
-            className="md:col-span-1 lg:col-span-7 bg-white dark:bg-neutral-900 rounded-[2rem] p-8 md:p-10 shadow-sm border border-gray-100 dark:border-neutral-800 flex flex-col justify-between overflow-hidden min-h-[400px]"
+            className="md:col-span-1 lg:col-span-7 bg-white dark:bg-neutral-900 rounded-[2rem] p-6 md:p-10 shadow-sm border border-gray-100 dark:border-neutral-800 flex flex-col justify-between overflow-hidden min-h-[320px] md:min-h-[400px]"
           >
              <div className="mb-8 flex-1 flex items-center bg-gray-50/50 dark:bg-neutral-800/50 rounded-3xl border border-gray-50/50 dark:border-neutral-800/50 inner-shadow">
                 <ContentGenVisual />
@@ -162,8 +170,12 @@ const Services: React.FC = () => {
 
           {/* Card 3: Performance */}
           <MotionDiv 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.7, delay: 0.45 }}
              whileHover={{ y: -5 }}
-             className="md:col-span-1 lg:col-span-4 bg-white dark:bg-neutral-900 rounded-[2rem] p-8 shadow-sm border border-gray-100 dark:border-neutral-800 flex flex-col min-h-[280px]"
+             className="md:col-span-1 lg:col-span-4 bg-white dark:bg-neutral-900 rounded-[2rem] p-6 md:p-8 shadow-sm border border-gray-100 dark:border-neutral-800 flex flex-col min-h-[240px] md:min-h-[280px]"
           >
              <div className="mb-auto">
                 <div className="w-10 h-10 bg-gray-50 dark:bg-neutral-800 rounded-xl flex items-center justify-center mb-4">
@@ -180,8 +192,12 @@ const Services: React.FC = () => {
 
           {/* Card 4: Analytics */}
           <MotionDiv 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.7, delay: 0.6 }}
              whileHover={{ y: -5 }}
-             className="md:col-span-1 lg:col-span-4 bg-white dark:bg-neutral-900 rounded-[2rem] p-8 shadow-sm border border-gray-100 dark:border-neutral-800 flex flex-col min-h-[280px]"
+             className="md:col-span-1 lg:col-span-4 bg-white dark:bg-neutral-900 rounded-[2rem] p-6 md:p-8 shadow-sm border border-gray-100 dark:border-neutral-800 flex flex-col min-h-[240px] md:min-h-[280px]"
           >
              <div className="mb-auto">
                 <div className="w-10 h-10 bg-gray-50 dark:bg-neutral-800 rounded-xl flex items-center justify-center mb-4">
@@ -198,8 +214,12 @@ const Services: React.FC = () => {
 
           {/* Card 5: Support */}
           <MotionDiv 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.7, delay: 0.75 }}
              whileHover={{ y: -5 }}
-             className="md:col-span-2 lg:col-span-4 bg-black dark:bg-white rounded-[2rem] p-8 shadow-xl flex flex-col min-h-[280px] relative overflow-hidden"
+             className="md:col-span-2 lg:col-span-4 bg-black dark:bg-white rounded-[2rem] p-6 md:p-8 shadow-xl flex flex-col min-h-[240px] md:min-h-[280px] relative overflow-hidden"
           >
              <div className="absolute top-0 right-0 w-32 h-32 bg-gray-800/50 dark:bg-gray-200/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
              

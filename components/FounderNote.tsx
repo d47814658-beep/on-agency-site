@@ -19,7 +19,7 @@ const FounderNote: React.FC = () => {
         <MotionDiv 
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1.0, ease: "easeOut" }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 shadow-sm mb-10"
         >
             <Quote className="w-3.5 h-3.5 text-black dark:text-white" />
@@ -27,10 +27,10 @@ const FounderNote: React.FC = () => {
         </MotionDiv>
 
         <MotionDiv
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-3xl md:text-4xl lg:text-5xl md:leading-[1.15] font-medium text-gray-400 dark:text-gray-500 mb-12 tracking-tight"
+          initial={{ opacity: 0, filter: 'blur(12px)', y: 30 }}
+          animate={isInView ? { opacity: 1, filter: 'blur(0px)', y: 0 } : { opacity: 0, filter: 'blur(12px)', y: 30 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+          className="text-2xl md:text-4xl lg:text-5xl md:leading-[1.15] font-medium text-gray-400 dark:text-gray-500 mb-12 tracking-tight"
         >
           "{t.founder.text1} <span className="text-black dark:text-white font-bold">{t.founder.bold1}</span> {t.founder.text2} <span className="text-black dark:text-white font-bold">{t.founder.bold2}</span> {t.founder.text3} <span className="text-black dark:text-white font-bold">{t.founder.bold3}</span>{t.founder.text4}"
         </MotionDiv>
@@ -38,7 +38,7 @@ const FounderNote: React.FC = () => {
         <MotionDiv
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
           className="flex flex-col items-center gap-3"
         >
           {/* Avatar / Icon */}

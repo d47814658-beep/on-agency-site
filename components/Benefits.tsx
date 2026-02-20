@@ -20,7 +20,7 @@ const Benefits: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-neutral-900 border border-gray-200/60 dark:border-neutral-800 shadow-lg shadow-gray-200/40 dark:shadow-none"
         >
           <Star className="w-3.5 h-3.5 text-black dark:text-white fill-black dark:fill-white" />
@@ -33,7 +33,7 @@ const Benefits: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.6 }}
+          transition={{ delay: 0.1, duration: 0.8 }}
           className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-gray-900 dark:text-white"
         >
           {t.benefits.title}
@@ -42,7 +42,7 @@ const Benefits: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
           className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
         >
           {t.benefits.subtitle}
@@ -63,7 +63,7 @@ const Benefits: React.FC = () => {
                   initial={{ height: 0 }}
                   whileInView={{ height: "8rem" }} // h-32
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                  transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
                   className="w-full bg-gray-200 dark:bg-neutral-700 rounded-t-lg relative overflow-hidden flex items-end justify-center group-hover/card:bg-gray-300 dark:group-hover/card:bg-neutral-600 transition-colors"
                 >
                    <MotionDiv 
@@ -210,7 +210,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ title, description, children,
       transition: { duration: 0.3 }
     }}
     viewport={{ once: true }}
-    transition={{ delay, duration: 0.5 }}
+    transition={{ delay, duration: 0.7 }}
     className="group/card bg-white dark:bg-neutral-900 rounded-3xl p-2 shadow-sm border border-gray-100 dark:border-neutral-800 hover:shadow-xl hover:border-gray-200 dark:hover:border-neutral-700 transition-all duration-300"
   >
     <div className="h-56 bg-[#F9FAFB] dark:bg-neutral-950 rounded-2xl mb-6 overflow-hidden relative border border-gray-50 dark:border-neutral-800">

@@ -2,6 +2,7 @@ import React from 'react';
 import { Marquee } from './ui/Marquee';
 import { useLanguage } from './LanguageContext';
 import { Layers } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const images = [
   "https://res.cloudinary.com/dpknc20k0/image/upload/v1771151649/media__1771151015580.jpg",
@@ -10,6 +11,9 @@ const images = [
   "https://res.cloudinary.com/dpknc20k0/image/upload/v1771151650/media__1771151015617.jpg",
   "https://res.cloudinary.com/dpknc20k0/image/upload/v1771152811/propvision.png"
 ];
+
+// Fix: Cast motion.div to any
+const MotionDiv = motion.div as any;
 
 const Features: React.FC = () => {
   const { t } = useLanguage();
@@ -40,7 +44,13 @@ const Features: React.FC = () => {
         </div>
 
         {/* Text Section (Right) */}
-        <div className="w-full lg:w-1/2 text-left">
+        <MotionDiv 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full lg:w-1/2 text-left"
+        >
            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm mb-6">
               <Layers className="w-3.5 h-3.5 text-white" />
               <span className="text-[10px] font-bold tracking-widest uppercase text-white/90">{t.features.badge}</span>
@@ -51,7 +61,7 @@ const Features: React.FC = () => {
              <span className="italic font-serif">{t.features.headline.italic}</span> <br/>
              {t.features.headline.end}
            </h2>
-        </div>
+        </MotionDiv>
 
       </div>
     </section>
