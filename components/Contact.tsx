@@ -64,10 +64,12 @@ const Contact: React.FC = () => {
           subject: formData.subject,
           message: formData.message,
           _subject: `Nouveau contact: ${formData.subject || 'Sans objet'}`,
-          _template: "table",
-          _captcha: "false"
+          _template: "table"
         })
       });
+
+      const result = await response.json();
+      console.log("Form submission result:", result);
 
       if (response.ok) {
         setStatus('success');
@@ -75,6 +77,7 @@ const Contact: React.FC = () => {
         // Reset success message after 5 seconds
         setTimeout(() => setStatus('idle'), 5000);
       } else {
+        console.error("Form submission failed:", result);
         setStatus('error');
         setTimeout(() => setStatus('idle'), 3000);
       }
