@@ -9,6 +9,7 @@ import Benefits from './components/Benefits';
 import Features from './components/Features';
 import Services from './components/Services';
 import Pricing from './components/Pricing';
+import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -248,6 +249,7 @@ const AppContent: React.FC = () => {
         <Features />
         <Services />
         <Pricing />
+        <Testimonials />
         <FAQ />
         <Contact />
       </main>

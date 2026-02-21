@@ -18,162 +18,185 @@ const translations = {
       start: "Commencer"
     },
     hero: {
-      badge: "Agence Web Premium",
-      title1: "Ne subissez plus",
-      title2: "le marché. Dominez-le.",
-      description: "Votre site ne doit pas juste être beau. Il doit capturer l'attention, écraser la concurrence et vendre pour vous 24h/7j. Le tout, sans sortir 5000€ aujourd'hui.",
+      badge: "Agence Web pour Pros & PME",
+      title1: "Votre site internet pro.",
+      title2: "Sans vous ruiner.",
+      description: "Attirez plus de clients locaux avec un site moderne, rapide et clé en main. Nous gérons toute la technique, vous gérez votre business.",
       price: "105€/mois.",
-      subDesc: "Hébergement, maintenance et sécurité inclus.",
-      cta1: "Lancer ma croissance ⚡",
-      cta2: "Découvrez nos services"
+      subDesc: "Tout inclus : Création, Hébergement, Maintenance.",
+      cta1: "Lancer mon site 🚀",
+      cta2: "Comment ça marche ?"
     },
     founder: {
-      badge: "VISION",
-      text1: "La plupart des sites sont des",
-      bold1: "cartes de visite mortes.",
-      text2: "Nous construisons des",
-      bold2: "Actifs Numériques :",
-      text3: "des machines optimisées psychologiquement pour",
-      bold3: "transformer un inconnu",
-      text4: " en client fidèle.",
-      role: "Vision & Stratégie"
+      badge: "LA RÉALITÉ",
+      text1: "Aujourd'hui, si vous n'êtes pas sur Google,",
+      bold1: "vous n'existez pas.",
+      text2: "Vos concurrents prennent vos clients car ils sont",
+      bold2: "visibles.",
+      text3: "Ne laissez pas passer le train du digital par peur de la",
+      bold3: "technique",
+      text4: " ou du coût.",
+      role: "Votre Partenaire Digital"
     },
     benefits: {
-      badge: "AVANTAGES",
-      title: "Pourquoi nous choisir ?",
-      subtitle: "Collaborez avec une agence spécialisée qui propose des solutions intelligentes et accessibles.",
+      badge: "POURQUOI NOUS ?",
+      title: "Fini les maux de tête",
+      subtitle: "Une solution pensée pour les artisans, commerçants et professions libérales.",
       card1: {
-        title: "Gardez votre trésorerie pour la guerre",
-        desc: "Investissez votre argent dans vos équipes ou votre pub. Nous finançons votre arme technologique."
+        title: "Gardez votre trésorerie",
+        desc: "Pas de chèque de 3000€ à sortir. Un simple abonnement mensuel, comme votre forfait téléphone."
       },
       card2: {
-        title: "Capturez l'attention en 0.5s",
-        desc: "Dans une économie de l'attention, le médiocre est invisible. Nous créons des designs qui scotchnt vos visiteurs.",
-        badge: "En ligne: 72h"
+        title: "On s'occupe de tout",
+        desc: "Hébergement, sécurité, mises à jour... Vous ne touchez à rien. On gère la technique pour vous.",
+        badge: "Zéro Stress"
       },
       card3: {
-        title: "Une Ferrari face à des Twingos",
-        desc: "Pendant que les sites WordPress de vos concurrents rament, le vôtre charge instantanément. Google adore, vos clients achètent.",
-        badge: "Performance"
+        title: "Clients garantis",
+        desc: "Un site conçu pour une seule chose : faire sonner votre téléphone et remplir votre agenda.",
+        badge: "Efficacité"
       }
     },
     scroll: {
-      custom: "Site Web Premium Sur-Mesure",
-      code: "Code Pur (React/Next.js) - Pas de WP",
-      hosting: "Hébergement Haute Performance",
-      security: "Certificat SSL & Sécurité",
-      maintenance: "Maintenance Technique Incluse",
-      content: "Modifications de Contenu Illimitées",
-      support: "Support Client Prioritaire (48h)",
-      seo: "Optimisation SEO Technique"
+      custom: "Site Web Clé en Main",
+      code: "Design Moderne & Pro",
+      hosting: "Hébergement Inclus",
+      security: "Sécurité Totale",
+      maintenance: "Maintenance Gérée",
+      content: "Modifications Simples",
+      support: "Support Réactif 7j/7",
+      seo: "Optimisé pour Google"
     },
     features: {
-      badge: "RÉALISATIONS",
-      title: "Nos Projets Récents",
-      subtitle: "Découvrez comment nous transformons les idées en expériences digitales.",
+      badge: "EXEMPLES",
+      title: "Ils nous font confiance",
+      subtitle: "Des pros comme vous qui ont boosté leur activité grâce à leur nouveau site.",
       headline: {
-        main: "Des sites web d'exception qui racontent",
-        italic: "votre",
-        end: "histoire."
+        main: "Votre vitrine digitale qui travaille",
+        italic: "pour",
+        end: "vous."
       },
       items: {
-        item1: { title: "Nexus Tech", category: "SaaS", desc: "Plateforme de gestion cloud avec dashboard temps réel." },
-        item2: { title: "Lumina Art", category: "E-commerce", desc: "Galerie d'art numérique avec expérience immersive." },
-        item3: { title: "Elevate Finance", category: "Fintech", desc: "Application bancaire nouvelle génération sécurisée." },
-        item4: { title: "Pulse Energy", category: "Corporate", desc: "Site vitrine pour un leader de l'énergie verte." },
-        item5: { title: "PropVision", category: "Real Estate", desc: "Visualisation immobilière 3D interactive." }
+        item1: { title: "Cabinet Durand", category: "Avocat", desc: "Site vitrine rassurant pour un cabinet d'avocats local." },
+        item2: { title: "La Belle Assiette", category: "Restaurant", desc: "Menu en ligne et réservation simplifiée." },
+        item3: { title: "Renov'Habitat", category: "Artisan", desc: "Présentation des chantiers et demande de devis." },
+        item4: { title: "Dr. Martin", category: "Santé", desc: "Cabinet dentaire avec prise de rendez-vous." },
+        item5: { title: "Boutique Éclat", category: "Commerce", desc: "Vitrine digitale pour une boutique de décoration." }
       }
     },
     services: {
       header: {
-        badge: "SERVICES",
-        title: "Nos services",
-        subtitle: "pilotés par l'excellence",
-        desc: "Tirez parti de notre stack technique moderne pour optimiser les performances de votre entreprise."
+        badge: "TOUT INCLUS",
+        title: "Ce que nous faisons pour vous",
+        subtitle: "pour 105€/mois",
+        desc: "Une offre complète pour ne plus jamais vous soucier de votre site web."
       },
       cards: {
         strategy: {
-          title: "Stratégie & Architecture",
-          desc: "Bénéficiez de conseils d'experts pour structurer votre présence digitale. Nous concevons l'architecture technique idéale pour votre croissance."
+          title: "Visibilité Locale",
+          desc: "On vous place là où vos clients vous cherchent : sur Google et Google Maps. Soyez le premier choix dans votre ville."
         },
         content: {
-          title: "Contenu & Optimisation",
-          desc: "Nous intégrons les meilleures pratiques SEO et rédactionnelles directement dans le code. Votre contenu est structuré pour performer sur Google dès le premier jour.",
-          uiInput: "Demandez une modification...",
-          uiGen: "Générer",
-          uiSeo: "Optimiser pour le SEO",
-          uiFix: "Corriger l'orthographe"
+          title: "Rédaction Incluse",
+          desc: "Vous ne savez pas quoi écrire ? Pas de panique. On rédige des textes convaincants pour présenter votre activité.",
+          uiInput: "Changer mes horaires...",
+          uiGen: "Mettre à jour",
+          uiSeo: "Optimiser",
+          uiFix: "Corriger"
         },
         performance: {
-          title: "Performance Pure",
-          desc: "Score Lighthouse 100/100 garanti grâce à notre stack Next.js.",
-          cta: "En savoir plus"
+          title: "Vitesse Éclair",
+          desc: "Un site qui charge instantanément sur mobile. Vos clients n'attendent pas, votre site non plus.",
+          cta: "Voir la vitesse"
         },
         analytics: {
-          title: "Analytics Privacy",
-          desc: "Suivez vos visiteurs sans cookies, sans bannières RGPD intrusives.",
-          cta: "Voir la démo"
+          title: "Statistiques Simples",
+          desc: "Recevez chaque mois un rapport simple : combien de visiteurs, combien d'appels, combien de contacts.",
+          cta: "Voir un exemple"
         },
         support: {
-          title: "Support Premium",
-          desc: "Une équipe d'ingénieurs dédiée disponible pour vous 7j/7.",
-          cta: "Contacter"
+          title: "Support Dédié",
+          desc: "Une question ? Une modification ? Un simple message WhatsApp ou email et on s'en occupe.",
+          cta: "Nous contacter"
         }
       }
     },
     pricing: {
-      sectionBadge: "TARIFICATION",
+      sectionBadge: "TARIF SIMPLE",
       monthly: "Mensuel",
       annual: "Annuel",
-      badge: "Sans Frais Initiaux",
-      offer: "Offre Unique",
+      badge: "SANS APPORT",
+      offer: "Pack Tout Compris",
       perMonth: "/ mois",
       perYear: "/ an",
-      subMonth: "Aucun frais cachés",
-      subYear: "Deux mois offerts",
-      cta: "Commencer maintenant",
-      disclaimer: "Engagement 12-16 mois • Propriété transférée ensuite.",
+      subMonth: "Pas de frais cachés",
+      subYear: "2 mois offerts",
+      cta: "Je veux mon site",
+      disclaimer: "Engagement 12 mois • Vous êtes libre ensuite.",
       features: [
-        "Machine à Convertir Sur-Mesure",
-        "Code Pur (React/Next.js) - Pas de WP",
-        "Hébergement Haute Performance",
-        "Certificat SSL & Sécurité",
-        "Maintenance Technique Incluse",
-        "Modifications de Contenu Illimitées*",
-        "Support Client Prioritaire (48h)",
-        "Architecture Domination SEO"
+        "Site Web Professionnel Complet",
+        "Hébergement sécurisé inclus",
+        "Maintenance technique gérée",
+        "Mises à jour illimitées",
+        "Optimisation Google (SEO)",
+        "Support client réactif"
+      ]
+    },
+    testimonials: {
+      badge: "TÉMOIGNAGES",
+      title: "La parole aux pros",
+      subtitle: "Ce qu'ils pensent de leur nouveau site.",
+      items: [
+        {
+          name: "Michel D.",
+          role: "Plombier Chauffagiste",
+          text: "Je ne m'occupe de rien, et j'ai de nouveaux appels chaque semaine. Pour 105€, c'est vite rentabilisé. Un vrai partenaire sur la durée.",
+          stars: 5
+        },
+        {
+          name: "Sophie L.",
+          role: "Gérante de Restaurant",
+          text: "Mon ancien site était moche et ne servait à rien. Celui-là est magnifique et mes clients l'adorent pour voir le menu.",
+          stars: 5
+        },
+        {
+          name: "Marc B.",
+          role: "Boutique de Vêtements",
+          text: "Simple, efficace, et je n'ai rien eu à faire. L'équipe s'est occupée de tout. C'est exactement ce qu'il me fallait.",
+          stars: 5
+        }
       ]
     },
     contact: {
-      badge: "CONTACT",
-      title: "Prêt à lancer ?",
-      subtitle: "Parlons de votre projet.",
-      desc: "Notre équipe est prête à concevoir votre nouvelle présence digitale.",
+      badge: "DÉMARRAGE RAPIDE",
+      title: "Lancez votre projet maintenant",
+      subtitle: "Remplissez le formulaire ci-dessous.",
+      desc: "Entrez vos informations pour vérifier votre éligibilité et démarrer la création de votre site.",
       emailCard: {
         title: "Email",
-        desc: "Pour les demandes générales, les partenariats ou les questions sur nos offres.",
+        desc: "Une question ? Envoyez-nous un email, on répond vite.",
         cta: "Envoyer un email"
       },
       callCard: {
         title: "Appel Découverte",
-        desc: "Réservez un créneau de 15 minutes pour discuter de vos besoins spécifiques.",
+        desc: "Prenez 15 min pour nous parler de votre activité. Gratuit et sans engagement.",
         cta: "Réserver un appel"
       },
       form: {
         name: "Nom complet",
-        namePlace: "John Doe",
-        email: "Email professionnel",
-        emailPlace: "john@entreprise.com",
-        subject: "Sujet",
-        subjectPlace: "Je souhaite refaire mon site...",
+        namePlace: "Jean Dupont",
+        email: "Email",
+        emailPlace: "jean@entreprise.com",
+        subject: "Activité",
+        subjectPlace: "Ex: Plombier, Restaurant...",
         message: "Message",
-        messagePlace: "Parlez-nous de vos objectifs...",
-        cta: "Envoyer le message"
+        messagePlace: "Dites-nous en plus sur votre projet...",
+        cta: "Être rappelé"
       }
     },
     footer: {
-      desc: "ON AGENCY redéfinit l'agence web avec un modèle sans apport, transparent et performant.",
-      company: "Entreprise",
+      desc: "ON AGENCY : L'agence web qui aide les pros à se digitaliser simplement.",
+      company: "Société",
       about: "À propos",
       services: "Services",
       careers: "Contact",
@@ -377,10 +400,10 @@ const translations = {
       ]
     },
     contact: {
-      badge: "CONTACT",
-      title: "Ready to launch?",
-      subtitle: "Let's talk about your project.",
-      desc: "Our team is ready to design your new digital presence.",
+      badge: "QUICK START",
+      title: "Start your project now",
+      subtitle: "Fill out the form below.",
+      desc: "Enter your details to verify eligibility and start your website creation.",
       emailCard: {
         title: "Email",
         desc: "For general inquiries, partnerships, or questions about our offers.",
