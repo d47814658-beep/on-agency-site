@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero';
 import FeatureScroll from './components/FeatureScroll';
 import FounderNote from './components/FounderNote';
+import Mission from './components/Mission';
 import Benefits from './components/Benefits';
 import Features from './components/Features';
 import Services from './components/Services';
 import Pricing from './components/Pricing';
+import DiscoveryCall from './components/DiscoveryCall';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -244,11 +246,13 @@ const AppContent: React.FC = () => {
       <main>
         <Hero />
         <FounderNote />
+        <Mission />
         <Benefits />
         <FeatureScroll />
         <Features />
         <Services />
         <Pricing />
+        <DiscoveryCall />
         <Testimonials />
         <FAQ />
         <Contact />

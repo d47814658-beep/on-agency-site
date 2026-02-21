@@ -18,10 +18,10 @@ const translations = {
       start: "Commencer"
     },
     hero: {
-      badge: "Agence Web pour Pros & PME",
+      badge: "Agence Web pour Artisans, Restos & PME",
       title1: "Votre site internet pro.",
       title2: "Sans vous ruiner.",
-      description: "Attirez plus de clients locaux avec un site moderne, rapide et clé en main. Nous gérons toute la technique, vous gérez votre business.",
+      description: "Attirez plus de clients locaux avec un site moderne. Spécialement conçu pour les artisans, commerçants et restaurateurs qui veulent se digitaliser sans se ruiner.",
       price: "105€/mois.",
       subDesc: "Tout inclus : Création, Hébergement, Maintenance.",
       cta1: "Lancer mon site 🚀",
@@ -29,7 +29,7 @@ const translations = {
     },
     founder: {
       badge: "LA RÉALITÉ",
-      text1: "Aujourd'hui, si vous n'êtes pas sur Google,",
+      text1: "Aujourd'hui, que vous soyez artisan ou commerçant, si vous n'êtes pas sur Google,",
       bold1: "vous n'existez pas.",
       text2: "Vos concurrents prennent vos clients car ils sont",
       bold2: "visibles.",
@@ -37,6 +37,12 @@ const translations = {
       bold3: "technique",
       text4: " ou du coût.",
       role: "Votre Partenaire Digital"
+    },
+    mission: {
+      badge: "NOTRE MISSION",
+      title: "Votre argent doit travailler pour vous, pas être bloqué dans un site.",
+      text1: "ON AGENCY est née d'un constat simple : des milliers d'excellents artisans et commerçants perdent des clients chaque jour parce qu'ils sont invisibles sur Google.",
+      text2: "Notre mission : vous donner une présence digitale professionnelle, sans vider votre trésorerie. Vous avez déjà l'argent, 105€/mois, c'est déjà dans votre budget."
     },
     benefits: {
       badge: "POURQUOI NOUS ?",
@@ -142,6 +148,10 @@ const translations = {
         "Support client réactif"
       ]
     },
+    discovery: {
+      text: "Pas encore sûr ? Prenez 15 min pour en discuter.",
+      cta: "Réserver un appel découverte"
+    },
     testimonials: {
       badge: "TÉMOIGNAGES",
       title: "La parole aux pros",
@@ -224,7 +234,7 @@ const translations = {
         q3: "En quoi êtes-vous différents d’un site WordPress template rapide ?",
         a3: "Un template “vite fait” donne un résultat correct mais rarement stratégique. ON Agency construit un site pensé pour votre business : clarté, crédibilité, conversion, et évolutivité (sans bricolage permanent).",
         q4: "À qui s’adresse votre modèle ?",
-        a4: "Aux entreprises qui veulent un site premium sans immobiliser une grosse somme au départ, et surtout qui veulent un site vivant : entretenu, sécurisé, et optimisé au fil des mois.",
+        a4: "Aux artisans, commerçants, restaurateurs et PME locales qui veulent un site premium sans immobiliser une grosse somme au départ, et surtout qui veulent un site vivant : entretenu, sécurisé, et optimisé au fil des mois.",
         
         q5: "Pourquoi vous ne facturez pas de frais initiaux élevés ?",
         a5: "Parce qu’un site n’est pas juste un “projet”, c’est un système qui doit fonctionner dans le temps. L’abonnement aligne nos intérêts : vous démarrez sans barrière financière, et nous sommes responsables de la qualité sur la durée.",
@@ -273,10 +283,10 @@ const translations = {
       start: "Start"
     },
     hero: {
-      badge: "Premium Web Agency",
+      badge: "Web Agency for Local Business",
       title1: "Premium Websites",
       title2: "0€ Upfront",
-      description: "Activate your digital presence without financial barriers.",
+      description: "Attract more local customers. Designed for artisans, shop owners, and restaurants who want to go digital without breaking the bank.",
       price: "105€/mo.",
       subDesc: "Hosting, maintenance, and security included.",
       cta1: "Get the model",
@@ -284,14 +294,20 @@ const translations = {
     },
     founder: {
       badge: "VISION",
-      text1: "Our mission is to enable every company to have a",
-      bold1: "professional website",
-      text2: "that is optimized without the",
-      bold2: "initial cost",
-      text3: "being a barrier. We believe investment should go into your",
-      bold3: "core business",
-      text4: ", not technical hurdles.",
+      text1: "Today, whether you are an artisan or shop owner, if you are not on Google,",
+      bold1: "you don't exist.",
+      text2: "Your competitors are taking your customers because they are",
+      bold2: "visible.",
+      text3: "Don't miss the digital train for fear of",
+      bold3: "tech",
+      text4: " or cost.",
       role: "Vision & Strategy"
+    },
+    mission: {
+      badge: "OUR MISSION",
+      title: "Your money should work for you, not be stuck in a website.",
+      text1: "ON AGENCY was born from a simple observation: thousands of excellent local artisans and merchants lose customers every day because they are invisible on Google.",
+      text2: "Our mission: to give you a professional digital presence, without emptying your treasury. You already have the money, 105€/month is already in your budget."
     },
     benefits: {
       badge: "BENEFITS",
@@ -399,6 +415,10 @@ const translations = {
         "Technical SEO Optimization"
       ]
     },
+    discovery: {
+      text: "Not sure yet? Take 15 min to discuss.",
+      cta: "Book a discovery call"
+    },
     contact: {
       badge: "QUICK START",
       title: "Start your project now",
@@ -456,7 +476,7 @@ const translations = {
         q3: "How are you different from a quick WordPress template?",
         a3: "A 'quick' template gives a decent result but is rarely strategic. ON Agency builds a site designed for your business: clarity, credibility, conversion, and scalability (without constant patching).",
         q4: "Who is your model for?",
-        a4: "For companies that want a premium site without tying up a large sum upfront, and especially those who want a living site: maintained, secured, and optimized over the months.",
+        a4: "For artisans, shop owners, restaurants, and local SMEs who want a premium site without tying up a large sum upfront, and especially those who want a living site: maintained, secured, and optimized over the months.",
         
         q5: "Why don't you charge a high upfront fee?",
         a5: "Because a site isn't just a 'project', it's a system that must work over time. The subscription aligns our interests: you start without financial barriers, and we are responsible for quality over the long term.",
