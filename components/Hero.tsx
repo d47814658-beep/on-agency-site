@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative h-screen min-h-[700px] flex flex-col justify-center items-center text-center px-4 md:px-12 overflow-hidden bg-[#F5F5F7] dark:bg-[#0D0D0D] transition-colors duration-500">
+    <section id="hero" className="relative min-h-screen min-h-[700px] flex flex-col justify-center items-center text-center px-4 md:px-12 pt-32 md:pt-0 overflow-hidden bg-[#F5F5F7] dark:bg-[#0D0D0D] transition-colors duration-500">
       
       {/* Background gradients for subtle depth, removed complex orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -110,13 +110,6 @@ const Hero: React.FC = () => {
             className="group min-w-[180px] inline-flex items-center justify-center px-8 py-4 text-sm font-medium text-white bg-black dark:bg-white dark:text-black rounded-full transition-transform"
           >
             {t.hero.cta1}
-          </MagneticButton>
-          
-          <MagneticButton 
-            href="#services"
-            className="min-w-[180px] inline-flex items-center justify-center px-8 py-4 text-sm font-medium text-gray-700 dark:text-white bg-transparent border border-gray-300 dark:border-white/20 rounded-full hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
-          >
-            {t.hero.cta2}
           </MagneticButton>
         </MotionDiv>
 

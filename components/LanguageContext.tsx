@@ -15,7 +15,46 @@ const translations = {
       pricing: "Tarification",
       services: "Services",
       contact: "Contact",
+      clientArea: "Espace Client",
       start: "Commencer"
+    },
+    onboarding: {
+      title: "Lançons votre projet 🚀",
+      subtitle: "Remplissez ce formulaire pour démarrer la création de votre site web professionnel.",
+      successTitle: "Merci !",
+      successMsg: "Nous avons bien reçu vos informations. Notre équipe vous contactera sous 24h pour finaliser votre projet.",
+      backHome: "Retour à l'accueil",
+      sections: {
+        identity: "Identité de l'entreprise",
+        activity: "Votre Activité",
+        visuals: "Vos Visuels",
+        extra: "Informations Complémentaires"
+      },
+      fields: {
+        companyName: "Nom de l'entreprise",
+        ownerName: "Nom du propriétaire",
+        phone: "Numéro de téléphone",
+        city: "Ville",
+        website: "Site web actuel (optionnel)",
+        sector: "Secteur d'activité",
+        description: "Description de l'activité",
+        logo: "Logo (PNG transparent recommandé)",
+        photos: "Photos de l'entreprise",
+        additionalInfo: "Infos supplémentaires (optionnel)",
+        submit: "Lancer mon projet ⚡"
+      },
+      placeholders: {
+        company: "Ex: Boulangerie Durand",
+        owner: "Ex: Jean Durand",
+        phone: "Ex: 06 12 34 56 78",
+        city: "Ex: Lyon",
+        website: "Ex: www.monsite.com",
+        description: "Décrivez votre activité, vos spécialités, ce qui vous rend unique...",
+        extra: "Horaires d'ouverture, liens réseaux sociaux, etc...",
+        logo: "Cliquez ou glissez votre logo ici",
+        photos: "Cliquez ou glissez vos photos ici",
+        selectSector: "Sélectionnez un secteur"
+      }
     },
     hero: {
       badge: "Agence Web pour Artisans, Restos & PME",
@@ -204,6 +243,11 @@ const translations = {
         cta: "Être rappelé"
       }
     },
+    notFound: {
+      title: "Page introuvable",
+      desc: "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.",
+      cta: "Retour à l'accueil"
+    },
     footer: {
       desc: "ON AGENCY : L'agence web qui aide les pros à se digitaliser simplement.",
       company: "Société",
@@ -280,7 +324,46 @@ const translations = {
       pricing: "Pricing",
       services: "Services",
       contact: "Contact",
+      clientArea: "Client Area",
       start: "Start"
+    },
+    onboarding: {
+      title: "Let's launch your project 🚀",
+      subtitle: "Fill out this form to start creating your professional website.",
+      successTitle: "Thank you!",
+      successMsg: "We have received your information. Our team will contact you within 24h to finalize your project.",
+      backHome: "Back to Home",
+      sections: {
+        identity: "Company Identity",
+        activity: "Your Activity",
+        visuals: "Your Visuals",
+        extra: "Additional Information"
+      },
+      fields: {
+        companyName: "Company Name",
+        ownerName: "Owner Name",
+        phone: "Phone Number",
+        city: "City",
+        website: "Current Website (optional)",
+        sector: "Business Sector",
+        description: "Activity Description",
+        logo: "Logo (Transparent PNG recommended)",
+        photos: "Company Photos",
+        additionalInfo: "Additional Info (optional)",
+        submit: "Launch my project ⚡"
+      },
+      placeholders: {
+        company: "Ex: Bakery Durand",
+        owner: "Ex: John Doe",
+        phone: "Ex: +33 6 12 34 56 78",
+        city: "Ex: Paris",
+        website: "Ex: www.mysite.com",
+        description: "Describe your activity, specialties, what makes you unique...",
+        extra: "Opening hours, social media links, etc...",
+        logo: "Click or drag your logo here",
+        photos: "Click or drag your photos here",
+        selectSector: "Select a sector"
+      }
     },
     hero: {
       badge: "Web Agency for Local Business",
@@ -446,6 +529,11 @@ const translations = {
         cta: "Send Message"
       }
     },
+    notFound: {
+      title: "Page not found",
+      desc: "Sorry, the page you are looking for does not exist or has been moved.",
+      cta: "Back to Home"
+    },
     footer: {
       desc: "ON AGENCY redéfinit the web agency with an upfront-free, transparent, and high-performance model.",
       company: "Company",
@@ -521,7 +609,16 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('fr');
+  const [language, setLanguage] = useState<Language>(() => {
+    // Detect browser language
+    if (typeof window !== 'undefined') {
+      const browserLang = navigator.language || navigator.languages?.[0];
+      if (browserLang && browserLang.startsWith('en')) {
+        return 'en';
+      }
+    }
+    return 'fr';
+  });
 
   const toggleLanguage = () => {
     setLanguage(prev => prev === 'fr' ? 'en' : 'fr');

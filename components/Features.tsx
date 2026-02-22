@@ -56,7 +56,7 @@ const Features: React.FC = () => {
               <span className="text-[10px] font-bold tracking-widest uppercase text-white/90">{t.features.badge}</span>
            </div>
            
-           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]">
              {t.features.headline.main} <br/>
              <span className="italic font-serif">{t.features.headline.italic}</span> <br/>
              {t.features.headline.end}

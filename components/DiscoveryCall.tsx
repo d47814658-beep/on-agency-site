@@ -27,7 +27,9 @@ const DiscoveryCall: React.FC = () => {
           </p>
           
           <a 
-            href="#contact"
+            href="https://calendly.com/onagency215/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-lg shadow-black/10 dark:shadow-white/5"
           >
             <PhoneCall className="w-4 h-4" />
